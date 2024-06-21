@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { setClients } from "../useFetch";
+import React,{useState} from "react";
+
+const API_SERVER = "http://localhost:8080/cliente/registrarCliente";
 
 
 
-const API_SERVER = "http://localhost:8080";
+
 
 export default function NewClient() {
 	const [documentoCliente, setDocumentoCliente] = useState('');
@@ -26,7 +27,7 @@ export default function NewClient() {
 			celularCliente: celularCliente,
 		};
 		try {
-			const response = await fetch(`${API_SERVER}/cliente/registrarCliente`, {
+			const response = await fetch(`${API_SERVER}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
