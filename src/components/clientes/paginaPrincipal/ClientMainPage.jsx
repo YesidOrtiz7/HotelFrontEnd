@@ -2,6 +2,7 @@ import { getClients } from "./useFetch";
 import { Link } from "react-router-dom";
 
 import DeleteClient from "../eliminarCliente/DeleteClient";
+import ClientInformation from "../ClientInformation";
 const API_SERVER = "http://localhost:8080/";
 
 export default function ClientMainPage() {
@@ -28,15 +29,7 @@ export default function ClientMainPage() {
                         <tbody>
                             {
                                 data?.map((cliente) => (
-                                    <tr key={cliente.idCliente}>
-                                        <td>{cliente.documentoCliente}</td>
-                                        <td>{cliente.primerNombreCliente}</td>
-                                        <td>{cliente.segundoNombreCliente}</td>
-                                        <td>{cliente.primerApellidoCliente}</td>
-                                        <td>{cliente.segundoApellidoCliente}</td>
-                                        <td>{cliente.celularCliente}</td>
-                                        <td><DeleteClient idClient={cliente.idCliente} /></td>
-                                    </tr>))
+                                    <ClientInformation cliente={cliente}/>))
                             }
                         </tbody>
                     </table>

@@ -21,15 +21,18 @@
 import React, { useState } from "react";
 import { getClient } from './queryGetClient';
 
+import ClientInformation from "../ClientInformation";
+
 export default function GetClient() {
   const [queryType, setQueryType] = useState('byDocument');
   const [idOrDocument, setIdOrDocument] = useState('');
   const [message, setMessage] = useState('');
+  const [client, setClient] = useState(null);
 
   return (
     <div>
       <h2>Buscar Cliente</h2>
-      <form id="get-client-form" onSubmit={(event) => getClient(event, queryType, idOrDocument, setMessage)}>
+      <form id="get-client-form" onSubmit={(event) => getClient(event, queryType, idOrDocument, setMessage, setClient)}>
         <div>
           <label htmlFor="byId">Buscar cliente por ID</label>
           <input
@@ -66,6 +69,21 @@ export default function GetClient() {
         </div>
       </form>
       {message && <p>{message}</p>}
+      <table>
+        <thead>
+          <tr>
+            <th>Documento</th>
+            <th>Primer Nombre</th>
+            <th>Segundo Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Celular</th>
+          </tr>
+        </thead>
+        <tbody>
+        {client && <ClientInformation cliente={client} />}
+        </tbody>
+      </table>
     </div>
   );
 }

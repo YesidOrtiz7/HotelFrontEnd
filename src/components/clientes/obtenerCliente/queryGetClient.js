@@ -1,6 +1,6 @@
 const API_SERVER = "http://localhost:8080/cliente/";
 
-export async function getClient(event, queryType, idOrDocument, setMessage) {
+export async function getClient(event, queryType, idOrDocument, setMessage, setClient) {
   event.preventDefault();
 
   let endpoint = '';
@@ -24,7 +24,8 @@ export async function getClient(event, queryType, idOrDocument, setMessage) {
 
     const result = await response.json();
     console.log('Success:', result);
-    setMessage(`Client found: ${JSON.stringify(result)}`);
+    setMessage(`Client found:`);
+    setClient(result);
 
   } catch (error) {
     console.error('Error:', error);
