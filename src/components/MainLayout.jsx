@@ -9,6 +9,7 @@ import Header from "./Header";
 import ClientMainPage from "./clientes/paginaPrincipal/ClientMainPage";
 import NewClient from "./clientes/registro/NewClient";
 import GetClient from "./clientes/obtenerCliente/GetClient";
+import UpdateClient from "./clientes/actualizarCliente/UpdateClient";
 import MainContent from "./MainContent";
 
 // import PDPContent from "pdp/PDPContent";
@@ -47,6 +48,7 @@ export default function MainLayout() {
                         <Route path="/clientes" element={<ClientMainPage />} />
                         <Route path="/registro" element={<NewClient />} />
                         <Route path="/buscar" element={<GetClient />} />
+                        <Route path="/cliente/:id" element={<UpdateClient/>} />
                     </Routes>
                 </div>
 

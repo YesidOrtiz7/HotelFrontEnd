@@ -69,21 +69,24 @@ export default function GetClient() {
         </div>
       </form>
       {message && <p>{message}</p>}
-      <table>
-        <thead>
-          <tr>
-            <th>Documento</th>
-            <th>Primer Nombre</th>
-            <th>Segundo Nombre</th>
-            <th>Primer Apellido</th>
-            <th>Segundo Apellido</th>
-            <th>Celular</th>
-          </tr>
-        </thead>
-        <tbody>
-        {client && <ClientInformation cliente={client} />}
-        </tbody>
-      </table>
+      {client &&
+        <table>
+          <thead>
+            <tr>
+              <th>Documento</th>
+              <th>Primer Nombre</th>
+              <th>Segundo Nombre</th>
+              <th>Primer Apellido</th>
+              <th>Segundo Apellido</th>
+              <th>Celular</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ClientInformation cliente={client} />
+          </tbody>
+        </table>
+      }
+
     </div>
   );
 }

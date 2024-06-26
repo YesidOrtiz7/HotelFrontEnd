@@ -23,7 +23,7 @@ export async function getClient(event, queryType, idOrDocument, setMessage, setC
     }
 
     const result = await response.json();
-    console.log('Success:', result);
+//    console.log('Success:', result);
     setMessage(`Client found:`);
     setClient(result);
 

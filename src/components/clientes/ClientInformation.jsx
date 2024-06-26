@@ -1,4 +1,7 @@
-import DeleteClient from "./eliminarCliente/DeleteClient"
+import DeleteClient from "./eliminarCliente/DeleteClient";
+
+import { Link } from "react-router-dom";
+
 export default function ClientInformation(props) {
     const cliente=props.cliente;
     return (
@@ -10,6 +13,11 @@ export default function ClientInformation(props) {
             <td>{cliente.segundoApellidoCliente}</td>
             <td>{cliente.celularCliente}</td>
             <td><DeleteClient idClient={cliente.idCliente} /></td>
+            <td>
+                <form action={`/cliente/${cliente.idCliente}`} method="get">
+                    <input type="submit" value="Actualizar" />
+                </form>
+            </td>
         </tr>
     );
 }
