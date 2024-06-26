@@ -2,10 +2,10 @@ import { getClients } from "./useFetch";
 import { Link } from "react-router-dom";
 
 //import {clientes, getClientes} from './clientsQuerys'
-const API_SERVER = "http://localhost:8080/cliente/registrarCliente";
+const API_SERVER = "http://localhost:8080/";
 
 export default function ClientMainPage() {
-    const { data, loading, error } = getClients(`${API_SERVER}`);
+    const { data, loading, error } = getClients(`${API_SERVER}cliente/clientes`);
 
     return (
         <div id="client-main-page">
@@ -13,6 +13,7 @@ export default function ClientMainPage() {
             {!loading &&
             <div>
             <Link id="newClient" to="/registro">Registrar Cliente</Link>
+            <Link id="clientQuery" to="/buscar">Buscar Cliente</Link>
                 <table>
                     <tr>
                         <th>Documento</th>

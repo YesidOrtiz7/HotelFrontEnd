@@ -6,8 +6,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
 import Header from "./Header";
-import ClientMainPage from "./clientes/ClientMainPage";
+import ClientMainPage from "./clientes/paginaPrincipal/ClientMainPage";
 import NewClient from "./clientes/registro/NewClient";
+import GetClient from "./clientes/obtenerCliente/GetClient";
 import MainContent from "./MainContent";
 
 // import PDPContent from "pdp/PDPContent";
@@ -45,6 +46,7 @@ export default function MainLayout() {
                         <Route path="/" element={<MainContent />} />
                         <Route path="/clientes" element={<ClientMainPage />} />
                         <Route path="/registro" element={<NewClient />} />
+                        <Route path="/buscar" element={<GetClient />} />
                     </Routes>
                 </div>
 
