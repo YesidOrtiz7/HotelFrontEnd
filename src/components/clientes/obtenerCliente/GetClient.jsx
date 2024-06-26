@@ -19,7 +19,7 @@
 // }
 // GetClient.jsx
 import React, { useState } from "react";
-import { getClient } from './querGetClient';
+import { getClient } from './queryGetClient';
 
 export default function GetClient() {
   const [queryType, setQueryType] = useState('byDocument');
