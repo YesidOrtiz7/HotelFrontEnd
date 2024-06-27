@@ -1,4 +1,5 @@
 import React from "react";
+import "./general.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // import "../index.scss";
@@ -39,10 +40,10 @@ export default function MainLayout() {
         //     </div>
         // </Router>
         <Router>
-            <div className="text-3xl mx-auto max-w-6xl">
+            <div className="">
 
                 <Header />
-                <div className="my-10">
+                <div className="mainLayout-content">
                     <Routes>
                         <Route path="/" element={<MainContent />} />
                         <Route path="/clientes" element={<ClientMainPage />} />

@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    position: fixed;
+    /* con las propiedades top y left se quito el espacio entre
+    el header y el borde de la pantalla del navegador */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);    
+}
+.menu{
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 200px;
+    font-weight: 700;
+}
+
+.menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 130px;
+}
+.menu li{
+    list-style: none;
+    float: left;
+}
+.menu a{
+    margin-left: 20px;
+
+    /* con esto hacemos que todos los links que hay ocupen todo
+    el ancho del header, asi va a hacer que el menu se centre */
+    /* line-height: 70px; */
+    text-align: right;
+    text-decoration: none;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.link:hover {
+    text-decoration: underline;
+  }
+
+
+.mainLayout-content {
+    padding-top: 60px;
+}
