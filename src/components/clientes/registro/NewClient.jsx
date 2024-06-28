@@ -1,6 +1,6 @@
 // NewClient.jsx
 import React, { useState } from "react";
-import { handleSubmit } from "./addNewClient";
+import { addNewClient } from "../useFetch";
 
 export default function NewClient() {
   const [documentoCliente, setDocumentoCliente] = useState('');
@@ -32,7 +32,7 @@ export default function NewClient() {
   return (
     <div>
       {message && <p>{message}</p>}
-      <form id="client-form" onSubmit={(event) => handleSubmit(event, formData, setMessage, clearForm)}>
+      <form id="client-form" onSubmit={(event) => addNewClient(event, formData, setMessage, clearForm)}>
         <div>
           <label>Documento</label>
           <input

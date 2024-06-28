@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import deleteClient from './queryDeleteClient';
+import deleteClient from '../useFetch';
 
 export default function DeleteClient(props) {
     const [message, setMessage] = useState('');

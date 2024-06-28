@@ -1,25 +1,5 @@
-// import React from "react";
-
-// import {getClient} from './getClient';
-
-// export default function GetClient(){
-//     return(
-//         <div>
-//             <h2>Buscar Cliente</h2>
-//             <form id="get-client-form" onSubmit={(event)=>getClient(event, formData, setMessage, clearForm)}>
-//                 <label htmlFor="byId">Buscar cliente por ID</label>
-//                 <input type="radio" name="query" id="byId" value="byId"/>
-//                 <label htmlFor="byDocument">Buscar cliente por Documento</label>
-//                 <input type="radio" name="query" id="byDocument" value="byDocument"/>
-//                 <input type="text" name="idOrDocument" id="idOrDocument" />
-//                 <input type="submit">Constular</input>
-//             </form>
-//         </div>
-//     );
-// }
-// GetClient.jsx
 import React, { useState } from "react";
-import { getClient } from './queryGetClient';
+import { getClient } from '../useFetch';
 
 import ClientInformation from "../ClientInformation";
 

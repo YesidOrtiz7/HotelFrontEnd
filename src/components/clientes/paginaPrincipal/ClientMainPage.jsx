@@ -1,12 +1,23 @@
-import { getClients } from "./useFetch";
+import { getClients } from "../useFetch";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-import DeleteClient from "../eliminarCliente/DeleteClient";
+
 import ClientInformation from "../ClientInformation";
-const API_SERVER = "http://localhost:8080/";
+//const API_SERVER = "http://localhost:8080/";
 
 export default function ClientMainPage() {
-    const { data, loading, error } = getClients(`${API_SERVER}cliente/clientes`);
+    //const { data, loading, error } = getClients(`${API_SERVER}cliente/clientes`);
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [message, setMessage] = useState(null);
+    //const [controller, setController] = useState(null);
+
+    useEffect(()=>{
+        //const abortController=new AbortController();
+        //setController(abortController);
+        getClients(setData, setMessage, setLoading);
+    },[]);
 
     return (
         <div id="client-main-page">
@@ -37,7 +48,7 @@ export default function ClientMainPage() {
             }
 
             {loading && <div>Loading...</div>}
-            {error && <div>Error: {error}</div>}
+            {message && <div>{message}</div>}
 
         </div>
     );

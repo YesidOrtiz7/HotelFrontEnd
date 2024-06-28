@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { getClient, updateClient } from './queryUpdateClient';
+import { getClientById, updateClient } from '../useFetch';
 
 export default function UpdateClient() {
   const [clientData, setClientData] = useState({
@@ -17,7 +17,7 @@ export default function UpdateClient() {
   const {id}=useParams();
 
   useEffect(() => {
-    getClient(id, setClientData, setMessage);
+    getClientById(id, setClientData, setMessage);
   }, [id]);
 
   const handleChange = (e) => {
