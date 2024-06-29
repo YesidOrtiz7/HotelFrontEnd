@@ -16,6 +16,9 @@ import RoomMainPage from "./habitaciones/paginaPrincipal/RoomMainPage";
 import RoomTypeMainPage from "./habitaciones/tipoHabitacion/RoomTypeMainPage";
 import NewRoomType from "./habitaciones/tipoHabitacion/NewRoomType";
 import UpdateRoomType from "./habitaciones/tipoHabitacion/UpdateRoomType";
+import RoomStatusMainPage from "./habitaciones/estadosHabitacion/RoomStatusMainPage";
+import NewRoomStatus from "./habitaciones/estadosHabitacion/NewRoomStatus";
+import UpdateRoomStatus from "./habitaciones/estadosHabitacion/UpdateRoomStatus";
 
 
 export default function MainLayout() {
@@ -34,9 +37,14 @@ export default function MainLayout() {
 
                         
                         <Route path="/habitaciones" element={<RoomMainPage />} />
+
                         <Route path="/tipohabitaciones" element={<RoomTypeMainPage />} />
                         <Route path="/nuevotipo" element={<NewRoomType />} />
                         <Route path="/tipohabitacion/:id" element={<UpdateRoomType/>} />
+
+                        <Route path="/estadoshabitaciones" element={<RoomStatusMainPage />} />
+                        <Route path="/nuevoestado" element={<NewRoomStatus />} />
+                        <Route path="/estadohabitacion/:id" element={<UpdateRoomStatus/>} />
                     </Routes>
                 </div>
 
