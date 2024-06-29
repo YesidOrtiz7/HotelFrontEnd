@@ -12,33 +12,14 @@ import NewClient from "./clientes/registro/NewClient";
 import GetClient from "./clientes/obtenerCliente/GetClient";
 import UpdateClient from "./clientes/actualizarCliente/UpdateClient";
 import MainContent from "./MainContent";
-
-// import PDPContent from "pdp/PDPContent";
-// import HomeContent from "home/HomeContent";
-// import CartContent from "cart/CartContent";
+import RoomMainPage from "./habitaciones/paginaPrincipal/RoomMainPage";
+import RoomTypeMainPage from "./habitaciones/tipoHabitacion/RoomTypeMainPage";
+import NewRoomType from "./habitaciones/tipoHabitacion/NewRoomType";
+import UpdateRoomType from "./habitaciones/tipoHabitacion/UpdateRoomType";
 
 
 export default function MainLayout() {
     return (
-        // <Router>
-        //     <div className="text-3xl mx-auto max-w-6xl">
-
-        //         <Header />
-        //         <div className="my-10">
-
-        //             <Routes>
-        //                 {/* <Route exact path="/" element={<HomeContent />} />
-
-        //                 <Route path="/product/:id" element={<PDPContent />} />
-
-        //                 <Route path="/cart" element={<CartContent />} /> */}
-
-        //             </Routes>
-        //         </div>
-
-        //         {/* <Footer /> */}
-        //     </div>
-        // </Router>
         <Router>
             <div className="">
 
@@ -50,6 +31,12 @@ export default function MainLayout() {
                         <Route path="/registro" element={<NewClient />} />
                         <Route path="/buscar" element={<GetClient />} />
                         <Route path="/cliente/:id" element={<UpdateClient/>} />
+
+                        
+                        <Route path="/habitaciones" element={<RoomMainPage />} />
+                        <Route path="/tipohabitaciones" element={<RoomTypeMainPage />} />
+                        <Route path="/nuevotipo" element={<NewRoomType />} />
+                        <Route path="/tipohabitacion/:id" element={<UpdateRoomType/>} />
                     </Routes>
                 </div>
 

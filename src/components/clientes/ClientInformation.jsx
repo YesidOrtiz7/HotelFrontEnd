@@ -1,7 +1,5 @@
 import DeleteClient from "./eliminarCliente/DeleteClient";
 
-import { Link } from "react-router-dom";
-
 export default function ClientInformation(props) {
     const cliente=props.cliente;
     return (
