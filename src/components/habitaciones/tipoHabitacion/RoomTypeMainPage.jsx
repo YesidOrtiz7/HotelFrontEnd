@@ -15,7 +15,9 @@ export default function RoomTypeMainPage() {
 
     return (
         <div>
-            <Link id="newRoomType" to="/nuevotipo">Añadir nuevo tipo</Link>
+            <div className="enlaces">
+            <Link id="newRoomType" to="/nuevotipo" className="enlace-boton enlace-boton_azul">Añadir nuevo tipo</Link>
+            </div>
             {!loading &&
                 <div>
                     <table>

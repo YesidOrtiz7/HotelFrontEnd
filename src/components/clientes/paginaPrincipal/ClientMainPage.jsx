@@ -1,21 +1,20 @@
+import "../../../App.css";
+
 import { getClients } from "../useFetch";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
 import ClientInformation from "../ClientInformation";
-//const API_SERVER = "http://localhost:8080/";
 
 export default function ClientMainPage() {
-    //const { data, loading, error } = getClients(`${API_SERVER}cliente/clientes`);
+    
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState(null);
-    //const [controller, setController] = useState(null);
 
     useEffect(()=>{
-        //const abortController=new AbortController();
-        //setController(abortController);
+
         getClients(setData, setMessage, setLoading);
     },[]);
 
@@ -24,9 +23,11 @@ export default function ClientMainPage() {
 
             {!loading &&
                 <div>
-                    <Link id="newClient" to="/registro">Registrar Cliente</Link>
-                    <Link id="clientQuery" to="/buscar">Buscar Cliente</Link>
-                    <table>
+                    <div className="enlaces">
+                    <Link id="newClient" to="/registro" className="enlace-boton enlace-boton_azul">Registrar Cliente</Link>
+                    <Link id="clientQuery" to="/buscar" className="enlace-boton enlace-boton_azul">Buscar Cliente</Link>
+                    </div>
+                    <table className="tabla">
                         <thead>
                             <tr>
                                 <th>Documento</th>
@@ -35,6 +36,7 @@ export default function ClientMainPage() {
                                 <th>Primer Apellido</th>
                                 <th>Segundo Apellido</th>
                                 <th>Celular</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

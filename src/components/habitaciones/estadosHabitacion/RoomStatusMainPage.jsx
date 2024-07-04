@@ -15,8 +15,11 @@ export default function RoomStatusMainPage() {
 
     return (
         <div>
-            <Link id="newRoomStauts" to="/nuevoestado">
-            Añadir nuevo estado de Habitacion</Link>
+            <div className="enlaces">
+                <Link id="newRoomStauts" to="/nuevoestado" className="enlace-boton enlace-boton_azul">
+                    Añadir nuevo estado de Habitacion</Link>
+            </div>
+
             {!loading &&
                 <div>
                     <table>

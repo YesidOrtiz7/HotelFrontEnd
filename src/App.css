@@ -1,0 +1,66 @@
+.mainLayout-content{
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+}
+.contenedorHijo{
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto; */
+    align-self: center;
+}
+
+.enlaces{
+    display: flex;
+    gap: 20px;
+    /* height: 35px; */
+}
+.enlace-boton{
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.enlace-boton_azul{
+    background-color: rgb(0, 119, 255);
+    /* background-image: linear-gradient(to bottom, rgb(0, 119, 255),rgb(130, 143, 255)); */
+    color: whitesmoke;
+}
+/* ----------------------------------------------------- */
+.tabla{
+    margin-top: 50px;
+    width: 100%;
+    /* border: 1px solid #000; */
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* border-radius: 5px 5px 0 0; */
+    border-radius: 5px;
+    overflow: hidden;
+}
+.tabla th,td{
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    
+    /* border-spacing: 0; */
+    /* border: 1px solid #000; */
+    padding: 0.3em;
+}
+.tabla thead th{
+    background-color: var(--background-color);
+    color: white;
+    text-align: center;
+}
+.tabla tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.tabla tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.tabla tbody tr:last-of-type{
+    border-bottom: 2px solid var(--background-color);
+}

@@ -14,8 +14,6 @@ export async function getRooms(setData, setMessage, setLoading) {
         }
 
         const result = await response.json();
-        //    console.log('Success:', result);
-        //setMessage(`Client found:`);
         setData(result);
     } catch (error) {
         if (error.name === "AbortError") {
@@ -27,5 +25,33 @@ export async function getRooms(setData, setMessage, setLoading) {
 
     } finally {
         setLoading(false);
+    }
+}
+
+export async function addNewRoom(event, formData, setMessage, clearForm) {
+    event.preventDefault();
+
+    try {
+        const response = await fetch(`${API_SERVER}nuevaHabitacion`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept':'*/*'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Success:', result);
+        setMessage('Room successfully added!');
+        clearForm();
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to add.');
     }
 }

@@ -1,4 +1,3 @@
-// NewClient.jsx
 import React, { useState } from "react";
 import { addNewClient } from "../useFetch";
 

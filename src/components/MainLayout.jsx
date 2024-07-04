@@ -13,6 +13,7 @@ import GetClient from "./clientes/obtenerCliente/GetClient";
 import UpdateClient from "./clientes/actualizarCliente/UpdateClient";
 import MainContent from "./MainContent";
 import RoomMainPage from "./habitaciones/paginaPrincipal/RoomMainPage";
+import NewRoom from "./habitaciones/nuevaHabitacion/NewRoom";
 import RoomTypeMainPage from "./habitaciones/tipoHabitacion/RoomTypeMainPage";
 import NewRoomType from "./habitaciones/tipoHabitacion/NewRoomType";
 import UpdateRoomType from "./habitaciones/tipoHabitacion/UpdateRoomType";
@@ -37,6 +38,7 @@ export default function MainLayout() {
 
                         
                         <Route path="/habitaciones" element={<RoomMainPage />} />
+                        <Route path="/nuevahabitacion" element={<NewRoom />} />
 
                         <Route path="/tipohabitaciones" element={<RoomTypeMainPage />} />
                         <Route path="/nuevotipo" element={<NewRoomType />} />
