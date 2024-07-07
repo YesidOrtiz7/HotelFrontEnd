@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DeleteRoom from "./eliminarHabitacion/DeleteRoom";
 
 export default function RoomInformation({ room }) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -23,8 +24,11 @@ export default function RoomInformation({ room }) {
                 <tr>
                     <td colSpan="7">
                         <div style={{ display: 'flex', justifyContent: 'end' }}>
-                            {/* <DeleteClient idClient={cliente.idCliente} /> */}
-                            <form action={`/habitaciones/${room.roomNumber}`} method="get">
+                            <form action={`/cambiarEstado/${room.idRoom}`} method="get">
+                                <input type="submit" value="Cambiar Estado" />
+                            </form>
+                            <DeleteRoom idRoom={room.idRoom} />
+                            <form action={`/actualizarhabitacion/${room.idRoom}`} method="get">
                                 <input type="submit" value="Actualizar" />
                             </form>
                         </div>

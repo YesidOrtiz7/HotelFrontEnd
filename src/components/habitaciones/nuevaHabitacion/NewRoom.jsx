@@ -53,40 +53,24 @@ export default function NewRoom() {
             value={roomNumber}
             onChange={(e) => setRoomNumber(e.target.value)}
           />
-          {/* <label>Estado Habitacion</label>
-          <select name="idRoomStatus" id="">
-            {
-              idRoomStatus?.map((status) =>
-                <option value={status}>{status.statusName}</option>
-              )
-            }
-          </select> */}
-          <label>Room Status</label>
-        <select value={idRoomStatus} onChange={(e) => setIdRoomStatus(parseInt(e.target.value))}>
-          <option value="">Select Status</option>
-          {roomStatuses.map(status => (
-            <option key={status.idStatus} value={status.idStatus}>
-              {status.statusName}
-            </option>
-          ))}
-        </select>
-          {/* <label>Tipo Habitacion</label>
-          <select name="roomType" id="">
-            {
-              roomType?.map((type) =>
-                <option value={type}>{type.roomTypeDescription}</option>
-              )
-            }
-          </select> */}
-          <label>Room Type</label>
-        <select value={roomType} onChange={(e) => setRoomType(parseInt(e.target.value))}>
-          <option value="">Select Type</option>
-          {roomTypes.map(type => (
-            <option key={type.idRoomType} value={type.idRoomType}>
-              {type.roomTypeDescription}
-            </option>
-          ))}
-        </select>
+          <label>Estado</label>
+          <select value={idRoomStatus} onChange={(e) => setIdRoomStatus(parseInt(e.target.value))}>
+            <option value="">Seleccione Estado</option>
+            {roomStatuses.map(status => (
+              <option key={status.idStatus} value={status.idStatus}>
+                {status.statusName}
+              </option>
+            ))}
+          </select>
+          <label>Tipo</label>
+          <select value={roomType} onChange={(e) => setRoomType(parseInt(e.target.value))}>
+            <option value="">Seleccione Tipo</option>
+            {roomTypes.map(type => (
+              <option key={type.idRoomType} value={type.idRoomType}>
+                {type.roomTypeDescription}
+              </option>
+            ))}
+          </select>
           <label>Precio Habitacion</label>
           <input
             name="roomPrice24Hours"
