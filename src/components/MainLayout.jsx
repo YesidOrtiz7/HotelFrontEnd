@@ -22,6 +22,9 @@ import NewRoomStatus from "./habitaciones/estadosHabitacion/NewRoomStatus";
 import UpdateRoomStatus from "./habitaciones/estadosHabitacion/UpdateRoomStatus";
 import UpdateRoom from "./habitaciones/actualizarHabitacion/UpdateRoom";
 import ChangeRoomStatus from "./habitaciones/estadosHabitacion/ChangeRoomStatus";
+import RateMainPage from "./tarifas/paginaPrincipal/RateMainPage";
+import NewRate from "./tarifas/nuevaTarifa/NewRate";
+import UpdateRate from "./tarifas/actualizarTarifa/UpdateRate";
 
 
 export default function MainLayout() {
@@ -51,6 +54,10 @@ export default function MainLayout() {
                         <Route path="/estadohabitacion/:id" element={<UpdateRoomStatus/>} />
                         <Route path="/actualizarhabitacion/:roomId" element={<UpdateRoom/>} />
                         <Route path="/cambiarEstado/:roomId" element={<ChangeRoomStatus/>} />
+
+                        <Route path="/tarifas" element={<RateMainPage/>} />
+                        <Route path="/nuevatarifa" element={<NewRate/>} />
+                        <Route path="/actualizartarifa/:id" element={<UpdateRate/>} />
                     </Routes>
                 </div>
 
