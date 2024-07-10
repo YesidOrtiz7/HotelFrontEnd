@@ -28,6 +28,8 @@ import UpdateRate from "./tarifas/actualizarTarifa/UpdateRate";
 import UpdateMunicipio from "./municipios/actualizarMunicipio/UpdateMunicipio";
 import MunicipiosMainPage from "./municipios/paginaPrincipal/MunicipiosMainPage";
 import NewMunicipio from "./municipios/nuevoMunicipio/NewMunicipio";
+import TipoPagoMainPage from "./servicio/tipoPago/TipoPagoMainPage";
+import NewTipoPago from "./servicio/tipoPago/NewTipoPago";
 
 
 export default function MainLayout() {
@@ -65,6 +67,9 @@ export default function MainLayout() {
                         <Route path="/municipios" element={<MunicipiosMainPage/>} />
                         <Route path="/nuevomunicipio" element={<NewMunicipio/>} />
                         <Route path="/actualizarmunicipio/:id" element={<UpdateMunicipio/>} />
+
+                        <Route path="/tiposdepago" element={<TipoPagoMainPage/>} />
+                        <Route path="/nuevotp" element={<NewTipoPago/>} />
                     </Routes>
                 </div>
 
