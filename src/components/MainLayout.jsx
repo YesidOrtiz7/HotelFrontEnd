@@ -30,6 +30,11 @@ import MunicipiosMainPage from "./municipios/paginaPrincipal/MunicipiosMainPage"
 import NewMunicipio from "./municipios/nuevoMunicipio/NewMunicipio";
 import TipoPagoMainPage from "./servicio/tipoPago/TipoPagoMainPage";
 import NewTipoPago from "./servicio/tipoPago/NewTipoPago";
+import ServiceMainPage from "./servicio/paginaPrincipal/ServiceMainPage";
+import ReceptionistMainPage from "./recepcionistas/paginaPrincipal/ReceptionistMainPage";
+import NewReceptionist from "./recepcionistas/anadirRecepcionista/NewReceptionist";
+import GetReceptionist from "./recepcionistas/buscarRecepcionista/GetReceptionist";
+import UpdateReceptionist from "./recepcionistas/actualizarRecepcionista/UpdateReceptionist";
 
 
 export default function MainLayout() {
@@ -70,6 +75,13 @@ export default function MainLayout() {
 
                         <Route path="/tiposdepago" element={<TipoPagoMainPage/>} />
                         <Route path="/nuevotp" element={<NewTipoPago/>} />
+
+                        <Route path="/recepcionistas" element={<ReceptionistMainPage/>} />
+                        <Route path="/nuevarecepcionista" element={<NewReceptionist/>} />
+                        <Route path="/buscarrecepcionista" element={<GetReceptionist/>} />
+                        <Route path="/actualizar/:id" element={<UpdateReceptionist/>} />
+
+                        <Route path="/servicios" element={<ServiceMainPage/>} />
                     </Routes>
                 </div>
 

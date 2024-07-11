@@ -16,7 +16,7 @@ export default function NewRoomType() {
   };
 
   return (
-    <div>
+    <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewRoomType(event, formData, setMessage, clearForm)}>
         <div>

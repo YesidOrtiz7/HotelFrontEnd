@@ -14,7 +14,7 @@ export default function NewMunicipio() {
     }
 
     return (
-        <div>
+        <div className="formulario">
             {message && <p>{message}</p>}
             <form id="rate-form" onSubmit={(event) => addNewMunicipio(event, formData, setMessage, clearForm)}>
                 <div>

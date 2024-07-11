@@ -29,7 +29,7 @@ export default function NewClient() {
   };
 
   return (
-    <div>
+    <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewClient(event, formData, setMessage, clearForm)}>
         <div>

@@ -12,6 +12,8 @@ export default function MainContent() {
                 <Link id="rate" to="/tarifas" className="enlace-boton enlace-boton_azul">Gestionar tarifas</Link>
                 <Link id="municipios" to="/municipios" className="enlace-boton enlace-boton_azul">Gestionar municipios</Link>
                 <Link id="tipopago" to="/tiposdepago" className="enlace-boton enlace-boton_azul">Ver Tipos de Pago</Link>
+                <Link id="servicios" to="/servicios" className="enlace-boton enlace-boton_azul">Servicios</Link>
+                <Link id="recepcionistas" to="/recepcionistas" className="enlace-boton enlace-boton_azul">Gestionar Recepcionistas</Link>
             </div>
 
         </div>

@@ -17,7 +17,7 @@ export default function NewRate() {
     }
 
     return (
-        <div>
+        <div className="formulario">
             {message && <p>{message}</p>}
             <form id="rate-form" onSubmit={(event) => addNewRate(event, formData, setMessage, clearForm)}>
                 <div>

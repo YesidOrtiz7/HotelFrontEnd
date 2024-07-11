@@ -67,3 +67,11 @@
 .tabla tbody tr:last-of-type{
     border-bottom: 2px solid var(--background-color);
 }
+/*------------------------------------------------------------------------*/
+.formulario{
+    margin-top: 50px;
+    padding: 20px;
+    width: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}

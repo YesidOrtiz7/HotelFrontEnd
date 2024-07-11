@@ -14,7 +14,7 @@ export default function NewTipoPago() {
     }
 
     return (
-        <div>
+        <div className="formulario">
             {message && <p>{message}</p>}
             <form id="payment-type-form" onSubmit={(event) => addNewPaymentType(event, formData, setMessage, clearForm)}>
                 <div>

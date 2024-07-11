@@ -41,11 +41,10 @@ export default function NewRoom() {
 
 
   return (
-    <div>
+    <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewRoom(event, formData, setMessage, clearForm)}>
         <div>
-
           <label>Numero Habitacion</label>
           <input
             name="roomNumber"
@@ -53,6 +52,8 @@ export default function NewRoom() {
             value={roomNumber}
             onChange={(e) => setRoomNumber(e.target.value)}
           />
+        </div>
+        <div>
           <label>Estado</label>
           <select value={idRoomStatus} onChange={(e) => setIdRoomStatus(parseInt(e.target.value))}>
             <option value="">Seleccione Estado</option>
@@ -62,6 +63,8 @@ export default function NewRoom() {
               </option>
             ))}
           </select>
+        </div>
+        <div>
           <label>Tipo</label>
           <select value={roomType} onChange={(e) => setRoomType(parseInt(e.target.value))}>
             <option value="">Seleccione Tipo</option>
@@ -71,6 +74,8 @@ export default function NewRoom() {
               </option>
             ))}
           </select>
+        </div>
+        <div>
           <label>Precio Habitacion</label>
           <input
             name="roomPrice24Hours"
@@ -78,6 +83,8 @@ export default function NewRoom() {
             value={roomPrice24Hours}
             onChange={(e) => setRoomPrice24Hours(e.target.value)}
           />
+        </div>
+        <div>
           <label>Numero de camas</label>
           <input
             name="bedsNumber"
@@ -85,9 +92,7 @@ export default function NewRoom() {
             value={bedsNumber}
             onChange={(e) => setBedsNumber(e.target.value)}
           />
-
         </div>
-
         <button type="submit">Enviar</button>
       </form>
     </div>
