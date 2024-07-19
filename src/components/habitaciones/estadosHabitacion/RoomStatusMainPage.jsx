@@ -9,7 +9,8 @@ export default function RoomStatusMainPage() {
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState(null);
     //const [isChecked, setIsChecked] = useState(false);//roomStatus.visibleOnSelection
-    const [selectedRadio, setSelectedRadio]= useState(null);
+    const [defaultOnClose, setDefaultOnClose]= useState(null);
+    const [defaultOnStart, setDefaultOnStart]= useState(null);
 
     useEffect(() => {
         getRoomStatus(setData, setMessage, setLoading);
@@ -17,9 +18,13 @@ export default function RoomStatusMainPage() {
 
     useEffect(() => {
         if (data) {
-            const defaultRoom = data.find(roomStatus => roomStatus.defaultForServiceShutdown);
-            if (defaultRoom) {
-                setSelectedRadio(defaultRoom.idStatus);
+            const defaultRoomToClose = data.find(roomStatus => roomStatus.defaultForServiceShutdown);
+            const defaultRoomToStart = data.find(roomStatus => roomStatus.defaultForServiceStart);
+            if (defaultRoomToClose) {
+                setDefaultOnClose(defaultRoomToClose.idStatus);
+            }
+            if (defaultRoomToStart){
+                setDefaultOnStart(defaultRoomToStart.idStatus);
             }
         }
     }, [data]);
@@ -55,7 +60,8 @@ export default function RoomStatusMainPage() {
                             <tr>
                                 <th>Descripcion estado habitacion</th>
                                 <th>Es visible en la pestaña de creacion de servicio</th>
-                                <th>Es es el estado que se asigna al terminar el servicio</th>
+                                <th>Es el estado que se asigna al iniciar el servicio</th>
+                                <th>Es el estado que se asigna al terminar el servicio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,8 +70,10 @@ export default function RoomStatusMainPage() {
                                     key={roomStatus.idStatus}
                                     roomStatus={roomStatus}
                                     handleCheckboxChange={handleCheckboxChange}
-                                    selectedRadio={selectedRadio}
-                                    setSelectedRadio={setSelectedRadio}
+                                    defaultOnClose={defaultOnClose}
+                                    setDefaultOnClose={setDefaultOnClose}
+                                    defaultOnStart={defaultOnStart}
+                                    setDefaultOnStart={setDefaultOnStart}
                                 />
                             ))}
                         </tbody>

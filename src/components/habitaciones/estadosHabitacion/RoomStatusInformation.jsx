@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DeleteRoomStatus from "./DeleteRoomStatus";
 
-export default function RoomStatusInformation({ roomStatus, handleCheckboxChange, selectedRadio, setSelectedRadio }) {
+export default function RoomStatusInformation({ roomStatus, handleCheckboxChange, defaultOnStart, setDefaultOnStart, defaultOnClose, setDefaultOnClose }) {
     const [isChecked, setIsChecked] = useState(roomStatus.visibleOnSelection);
 
     return (
@@ -22,13 +22,26 @@ export default function RoomStatusInformation({ roomStatus, handleCheckboxChange
             <td>
                 <input
                     type="radio"
+                    name="defaultOnStart"
+                    id={roomStatus.statusName}
+                    value={roomStatus.idStatus}
+                    checked={defaultOnStart === roomStatus.idStatus}
+                    onChange={() => {
+                        setDefaultOnStart(roomStatus.idStatus);
+                        handleCheckboxChange(roomStatus.idStatus, true, 2);
+                    }}
+                />
+            </td>
+            <td>
+                <input
+                    type="radio"
                     name="query"
                     id={roomStatus.statusName}
                     value={roomStatus.idStatus}
-                    checked={selectedRadio === roomStatus.idStatus}
+                    checked={defaultOnClose === roomStatus.idStatus}
                     onChange={() => {
-                        setSelectedRadio(roomStatus.idStatus);
-                        handleCheckboxChange(roomStatus.idStatus, true, 2);
+                        setDefaultOnClose(roomStatus.idStatus);
+                        handleCheckboxChange(roomStatus.idStatus, true, 3);
                     }}
                 />
             </td>

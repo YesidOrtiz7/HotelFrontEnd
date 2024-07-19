@@ -136,7 +136,9 @@ export default function AddNewService() {
                     <label>Habitacion</label>
                     <select value={idRoom} onChange={(e) => setIdRoom(parseInt(e.target.value))}>
                         <option value="">Seleccione Habitacion</option>
-                        {allIdRoom.map(room => (
+                        {allIdRoom
+                        .filter(room => room.idRoomStatus.visibleOnSelection)
+                        .map(room => (
                             <option key={room.idRoom} value={room.idRoom}>
                                 {room.roomNumber + " " + room.idRoomStatus.statusName}
                             </option>
