@@ -143,3 +143,27 @@ export async function updateRoomStatus(event, formData, setMessage) {
         setMessage('Failed to update.');
     }
 }
+export async function updateConfigurationRoomStatus(formData, setMessage) {
+
+    try {
+        const response = await fetch(`${API_SERVER}actualizarconfiguracionestados`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Success:', result);
+        setMessage('Successfully updated!');
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to update.');
+    }
+}

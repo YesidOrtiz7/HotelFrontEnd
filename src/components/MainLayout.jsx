@@ -35,6 +35,7 @@ import ReceptionistMainPage from "./recepcionistas/paginaPrincipal/ReceptionistM
 import NewReceptionist from "./recepcionistas/anadirRecepcionista/NewReceptionist";
 import GetReceptionist from "./recepcionistas/buscarRecepcionista/GetReceptionist";
 import UpdateReceptionist from "./recepcionistas/actualizarRecepcionista/UpdateReceptionist";
+import AddNewService from "./servicio/nuevoServicio/AddNewService";
 
 
 export default function MainLayout() {
@@ -82,6 +83,7 @@ export default function MainLayout() {
                         <Route path="/actualizar/:id" element={<UpdateReceptionist/>} />
 
                         <Route path="/servicios" element={<ServiceMainPage/>} />
+                        <Route path="/nuevoservicio" element={<AddNewService/>} />
                     </Routes>
                 </div>
 

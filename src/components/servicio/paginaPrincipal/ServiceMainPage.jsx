@@ -14,7 +14,7 @@ export default function ServiceMainPage(){
     return (
         <div className="contenedorHijo">
             <div className="enlaces">
-                <Link id="newroom" to="/nuevahabitacion" className="enlace-boton enlace-boton_azul">Crear nueva habitacion</Link>
+                <Link id="newservice" to="/nuevoservicio" className="enlace-boton enlace-boton_azul">Crear nuevo servicio</Link>
                 <Link id="roomType" to="/tipohabitaciones" className="enlace-boton enlace-boton_azul">Gestionar tipos de habitaciones</Link>
                 <Link id="roomStatus" to="/estadoshabitaciones" className="enlace-boton enlace-boton_azul">Gestionar estados de habitaciones</Link>
             </div>
