@@ -37,7 +37,7 @@ export default function AddNewService() {
     //const [payment, setPayment] = useState(0);
     const [fechaEntrada, setFechaEntrada] = useState('');
     const [fechaSalida, setFechaSalida] = useState('');
-    const [state, setState] = useState(true);
+    //const [state, setState] = useState(true);
 
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState('');
@@ -80,7 +80,7 @@ export default function AddNewService() {
         //setPayment(0);
         setFechaEntrada('');
         setFechaSalida('');
-        setState(true);
+        //setState(true);
     }
     const formData = {
         idRecep: allIdRecep.find(recep => recep.idRecep === idRecep),
@@ -94,7 +94,7 @@ export default function AddNewService() {
         //payment: payment,
         fechaEntrada: fechaEntrada,
         fechaSalida: fechaSalida,
-        state: state,
+        //state: state,
     }
     useEffect(() => {
         getReceptionists(setAllIdRecep, setMessage, setLoading);

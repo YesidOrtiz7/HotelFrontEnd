@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 import { getServices } from "../useFetch";
 import ServiceInformation from "../ServiceInformation";
-export default function ServiceMainPage(){
+
+export default function ServiceMainPage() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState(null);
@@ -11,6 +12,15 @@ export default function ServiceMainPage(){
     useEffect(() => {
         getServices(setData, setMessage, setLoading);
     }, []);
+
+    const updateService = (id, updatedService) => {
+        setData((prevData) =>
+            prevData.map((service) =>
+                service.idService === id ? { ...service, ...updatedService } : service
+            )
+        );
+    };
+
     return (
         <div className="contenedorHijo">
             <div className="enlaces">
@@ -18,7 +28,7 @@ export default function ServiceMainPage(){
                 <Link id="roomType" to="/tipohabitaciones" className="enlace-boton enlace-boton_azul">Gestionar tipos de habitaciones</Link>
                 <Link id="roomStatus" to="/estadoshabitaciones" className="enlace-boton enlace-boton_azul">Gestionar estados de habitaciones</Link>
             </div>
-            {!loading &&
+            {!loading && (
                 <div>
                     <table className="tabla">
                         <thead>
@@ -32,22 +42,25 @@ export default function ServiceMainPage(){
                                 <th>Fecha salida</th>
                                 <th>Recepcionista</th>
                                 <th>Estado</th>
-                                <th>Pago</th>
+                                <th>Total a pagar</th>
+                                <th>Es pagado</th>
                                 <th>Tipo Pago</th>
-
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                data?.map((service) => (
-                                    <ServiceInformation service={service} />))
-                            }
+                            {data?.map((service) => (
+                                <ServiceInformation
+                                    key={service.idService}
+                                    service={service}
+                                    setMessage={setMessage}
+                                    updateService={updateService}
+                                />
+                            ))}
                         </tbody>
                     </table>
                 </div>
-            }
-
+            )}
             {loading && <div>Loading...</div>}
             {message && <div>{message}</div>}
         </div>

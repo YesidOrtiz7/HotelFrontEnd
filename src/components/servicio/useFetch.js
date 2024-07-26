@@ -55,3 +55,151 @@ export async function createNewService(event, formData, setMessage, clearForm) {
         setMessage('Failed to create.');
     }
 }
+export async function payService(event, formData, setMessage) {
+    event.preventDefault();
+
+    try {
+        const response = await fetch(`${API_SERVER}pagarServicio`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let result;
+        try {
+            result = await response.json();
+        } catch (e) {
+            result = null;
+        }
+
+        if (result) {
+            console.log('Success:', result);
+            setMessage('Service paid.');
+            //setMessage(`Paid service: ${JSON.stringify(result)}`);
+            return result; // Devuelve el resultado para actualizar el estado
+        } else {
+            setMessage('Service paid.');
+            return null;
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to paid.');
+        return null;
+    }
+}
+export async function closeService(event, formData, setMessage) {
+    event.preventDefault();
+
+    try {
+        const response = await fetch(`${API_SERVER}cerrarServicio`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let result;
+        try {
+            result = await response.json();
+        } catch (e) {
+            result = null;
+        }
+
+        if (result) {
+            console.log('Success:', result);
+            setMessage('Service close.');
+            //setMessage(`Paid service: ${JSON.stringify(result)}`);
+            return result; // Devuelve el resultado para actualizar el estado
+        } else {
+            setMessage('Service close.');
+            return null;
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to close.');
+        return null;
+    }
+}
+/*export async function payService(event, formData, setMessage) {
+    event.preventDefault();
+
+    try {
+        const response = await fetch(`${API_SERVER}pagarServicio`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let result;
+        try {
+            result = await response.json();
+        } catch (e) {
+            result = null;
+        }
+
+        if (result) {
+            console.log('Success:', result);
+            setMessage(`Paid service: ${JSON.stringify(result)}`);
+        } else {
+            setMessage('Service paid.');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to paid.');
+    }
+}
+/*export default async function deleteClient(event, idClient, setMessage) {
+    event.preventDefault();
+
+
+    try {
+        const response = await fetch(`${API_SERVER}eliminar/${idClient}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let result;
+        try {
+            result = await response.json();
+        } catch (e) {
+            result = null; // or handle the empty response appropriately
+        }
+
+        if (result) {
+            console.log('Success:', result);
+            setMessage(`Client deleted: ${JSON.stringify(result)}`);
+        } else {
+            setMessage('Client successfully deleted.');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to delete client.');
+    }
+} */
