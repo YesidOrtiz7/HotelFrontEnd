@@ -36,6 +36,8 @@ import NewReceptionist from "./recepcionistas/anadirRecepcionista/NewReceptionis
 import GetReceptionist from "./recepcionistas/buscarRecepcionista/GetReceptionist";
 import UpdateReceptionist from "./recepcionistas/actualizarRecepcionista/UpdateReceptionist";
 import AddNewService from "./servicio/nuevoServicio/AddNewService";
+import ExpandService from "./servicio/ampliarServicio/ExpandService";
+import ChangeRoom from "./servicio/cambiarHabitacion/ChangeRoom";
 
 
 export default function MainLayout() {
@@ -84,6 +86,8 @@ export default function MainLayout() {
 
                         <Route path="/servicios" element={<ServiceMainPage/>} />
                         <Route path="/nuevoservicio" element={<AddNewService/>} />
+                        <Route path="/ampliar/:idService" element={<ExpandService/>} />
+                        <Route path="/cambiarhabitacion/:idService" element={<ChangeRoom/>} />
                     </Routes>
                 </div>
 

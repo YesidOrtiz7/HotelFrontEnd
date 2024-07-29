@@ -18,6 +18,7 @@ export default function Header() {
             <menu className="menu">
                 <ul>
                     <li><Link id="home" to="/" className="link">Pagina principal</Link></li>
+                    <li><Link id="home" to="/servicios" className="link">Servicios</Link></li>
                 </ul>
             </menu>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { payService ,closeService } from "./useFetch";
+import { payService, closeService } from "./useFetch";
 
 export default function ServiceInformation({ service, setMessage, updateService }) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -31,21 +31,32 @@ export default function ServiceInformation({ service, setMessage, updateService 
                 <td>{service.itsPaid ? "Si" : "No"}</td>
                 <td>{service.idTipoPago.descripcionPago}</td>
                 <td>
-                    <button onClick={toggleExpand}>
-                        {isExpanded ? "Cerrar" : "Acciones"}
-                    </button>
+                    {service.state &&
+                        <button onClick={toggleExpand}>
+                            {isExpanded ? "Cerrar" : "Acciones"}
+                        </button>
+                    }
                 </td>
             </tr>
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
                         <div style={{ display: 'flex', justifyContent: 'end' }}>
-                            <form id="payment-button" onSubmit={e=>handleSubmit(payService,e,{ id: service.idService })}>
+
+                            <form id="payment-button" onSubmit={e => handleSubmit(payService, e, { id: service.idService })}>
                                 <input type="submit" value="Pagar" />
                             </form>
-                            <form id="endOfService-button" onSubmit={e=>handleSubmit(closeService,e,{ id: service.idService })}>
-                                <input type="submit" value="Terminar servicio" />
+                            <form id="endOfService-button" onSubmit={e => handleSubmit(closeService, e, { id: service.idService })}>
+                                <input type="submit" value="Terminar servicio" disabled={!service.itsPaid} />
                             </form>
+
+                            <form action={`/ampliar/${service.idService}`} method="get">
+                                <input type="submit" value="Ampliar Servicio" />
+                            </form>
+                            <form action={`/cambiarHabitacion/${service.idService}`} method="get">
+                                <input type="submit" value="Cambiar Habitacion" />
+                            </form>
+
                         </div>
                     </td>
                 </tr>

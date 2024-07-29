@@ -27,6 +27,31 @@ export async function getServices(setData, setMessage, setLoading) {
         setLoading(false);
     }
 }
+export async function getServiceById(id, setData, setMessage, setLoading) {
+    try {
+        setLoading(true);
+        const response = await fetch(`${API_SERVER}id/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        setData(result || {}); // Aseguramos que result siempre sea un objeto
+        
+        setLoading(false);
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to fetch.');
+        setLoading(false);
+    }
+}
 export async function createNewService(event, formData, setMessage, clearForm) {
     event.preventDefault();
 
@@ -131,6 +156,59 @@ export async function closeService(event, formData, setMessage) {
         console.error('Error:', error);
         setMessage('Failed to close.');
         return null;
+    }
+}
+export async function expandService(event, formData, setMessage) {
+    event.preventDefault();
+
+    try {
+        const response = await fetch(`${API_SERVER}extenderServicios`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Success:', result);
+        setMessage('Service successfully updated!');
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to update.');
+    }
+}
+export async function changeRoomOfService(event, formData, setMessage, clearForm) {
+    event.preventDefault();
+
+    console.log(formData);
+
+    try {
+        const response = await fetch(`${API_SERVER}nuevaHabitacion`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Success:', result);
+        setMessage('Successfully created!');
+        clearForm();
+
+    } catch (error) {
+        console.error('Error:', error);
+        setMessage('Failed to create.');
     }
 }
 /*export async function payService(event, formData, setMessage) {
