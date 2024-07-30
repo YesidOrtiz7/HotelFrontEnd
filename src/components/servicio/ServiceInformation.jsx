@@ -56,6 +56,9 @@ export default function ServiceInformation({ service, setMessage, updateService 
                             <form action={`/cambiarHabitacion/${service.idService}`} method="get">
                                 <input type="submit" value="Cambiar Habitacion" />
                             </form>
+                            <form action={`/cambiartarifa/${service.idService}`} method="get">
+                                <input type="submit" value="Cambiar Tarifa" />
+                            </form>
 
                         </div>
                     </td>

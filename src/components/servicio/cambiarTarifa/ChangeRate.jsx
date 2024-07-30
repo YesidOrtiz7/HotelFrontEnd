@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { getServiceById, changeRoomOfService } from "../useFetch";
-import { getRooms } from "../../habitaciones/useFetch";
+import { getServiceById, changeRateOfService } from "../useFetch";
+import { getRate } from "../../tarifas/useFetch";
 
-export default function ChangeRoom() {
+export default function ChangeRate() {
     const [serviceData, setServiceData] = useState({ data: {}, loading: true, message: '' });
-    const [roomsData, setRoomsData] = useState({ allRooms: [], loading: true, message: '' });
-    const [roomNumber, setRoomNumber] = useState(0);
+    //const [roomsData, setRoomsData] = useState({ allRooms: [], loading: true, message: '' });
+    const [ratesData, setRatesData] = useState({ allRates: [], loading: true, message: '' });
+
+    //const [roomNumber, setRoomNumber] = useState(0);
+    const [rateId, setRateId] = useState(0);
+
     const { idService } = useParams();
     const isMounted = useRef(true);
 
@@ -17,10 +21,10 @@ export default function ChangeRoom() {
     }, []);
 
     useEffect(() => {
-        getRooms(
-            (rooms) => isMounted.current && setRoomsData({ allRooms: rooms, loading: false, message: '' }),
-            (message) => isMounted.current && setRoomsData((prev) => ({ ...prev, message })),
-            () => isMounted.current && setRoomsData((prev) => ({ ...prev, loading: false }))
+        getRate(
+            (rates) => isMounted.current && setRatesData({allRates: rates, loading: false, message: ''}),
+            (message) => isMounted.current && setRatesData((prev)=>({...prev,message})),
+            ()=>isMounted.current && setRatesData((prev)=>({...prev, loading: false}))
         );
     }, []);
 
@@ -37,9 +41,9 @@ export default function ChangeRoom() {
         e.preventDefault();
         const formData = {
             idService: idService,
-            roomNumber: roomNumber,
+            rateId: rateId,
         };
-        changeRoomOfService(
+        changeRateOfService(
             formData,
             (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
             () => isMounted.current && setRoomNumber(0)
@@ -72,18 +76,17 @@ export default function ChangeRoom() {
         );
     };
 
-    const renderRoomOptions = () => {
-        if (roomsData.loading) return <div>Loading...</div>;
-        if (roomsData.message) return <div>{roomsData.message}</div>;
+    const renderRateOptions = () => {
+        if (ratesData.loading) return <div>Loading...</div>;
+        if (ratesData.message) return <div>{ratesData.message}</div>;
 
         return (
-            <select value={roomNumber} onChange={(e) => setRoomNumber(parseInt(e.target.value))}>
-                <option value="">Seleccione Habitación</option>
-                {roomsData.allRooms
-                    .filter(room => room.idRoomStatus.visibleOnSelection)
-                    .map(room => (
-                        <option key={room.idRoom} value={room.idRoom}>
-                            {room.roomNumber + " " + room.idRoomStatus.statusName}
+            <select value={rateId} onChange={(e) => setRateId(parseInt(e.target.value))}>
+                <option value="">Seleccione Tarifa</option>
+                {ratesData.allRates
+                    .map(rate => (
+                        <option key={rate.idTipoTarifa} value={rate.idTipoTarifa}>
+                            {rate.descripcionTarifa + " descuento: " + rate.porcentajeTarifa+"%"}
                         </option>
                     ))}
             </select>
@@ -92,12 +95,12 @@ export default function ChangeRoom() {
 
     return (
         <div>
-            <h2>Cambio de habitación</h2>
+            <h2>Cambio de tarifa</h2>
             {renderServiceDetails()}
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Habitación</label>
-                    {renderRoomOptions()}
+                    <label>Tarifa</label>
+                    {renderRateOptions()}
                 </div>
                 <div>
                     <button type="submit">Aceptar</button>
