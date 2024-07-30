@@ -1,9 +1,10 @@
-.mainLayout-content{
+.mainLayout-content {
     /* position: relative; */
     display: flex;
     justify-content: center;
 }
-.contenedorHijo{
+
+.contenedorHijo {
     /* position: absolute;
     top: 0;
     left: 0;
@@ -13,25 +14,41 @@
     align-self: center;
 }
 
-.enlaces{
+.enlaces {
     display: flex;
     gap: 20px;
     /* height: 35px; */
 }
-.enlace-boton{
-    font-size: 12pt;
+
+.enlace-boton {
+    /* font-size: 12pt;
     font-weight: bold;
     padding: 5px 10px;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 10px; */
+    font-weight: bold;
+    font-size: 12pt;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
 }
-.enlace-boton_azul{
-    background-color: rgb(0, 119, 255);
+
+.enlace-boton_azul {
+    /*background-color: rgb(0, 119, 255);*/
     /* background-image: linear-gradient(to bottom, rgb(0, 119, 255),rgb(130, 143, 255)); */
-    color: whitesmoke;
+    /*color: whitesmoke;*/
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
 }
+
+.enlace-boton_azul:hover {
+    background-color: #0056b3;
+}
+
 /* ----------------------------------------------------- */
-.tabla{
+.tabla {
     margin-top: 50px;
     width: 100%;
     /* border: 1px solid #000; */
@@ -41,37 +58,100 @@
     border-radius: 5px;
     overflow: hidden;
 }
-.tabla th,td{
+
+.tabla th,
+td {
     width: 25%;
     text-align: left;
     vertical-align: top;
-    
+
     /* border-spacing: 0; */
     /* border: 1px solid #000; */
     padding: 0.3em;
 }
-.columna_centrada{
+
+.columna_centrada {
     text-align: center;
 }
-.tabla thead th{
+
+.tabla thead th {
     background-color: var(--background-color);
     color: white;
     text-align: center;
 }
-.tabla tbody tr{
+
+.tabla tbody tr {
     border-bottom: 1px solid #dddddd;
 }
-.tabla tbody tr:nth-of-type(even){
+
+.tabla tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
-.tabla tbody tr:last-of-type{
+
+.tabla tbody tr:last-of-type {
     border-bottom: 2px solid var(--background-color);
 }
+
 /*------------------------------------------------------------------------*/
-.formulario{
+.formulario {
     margin-top: 50px;
     padding: 20px;
     width: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.inputGroup label {
+    flex: 1;
+    text-align: left;
+}
+
+.inputGroup input,
+.inputGroup select {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 16px);
+}
+.inputGroup input[type="text"] {
+    flex: 2;
+}
+.inputGroup select{
+    flex: 2;
+}
+.boton {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+}
+.botonAzul{
+    background-color: #007bff;
+    color: #fff;
+}
+
+.botonAzul:hover {
+    background-color: #0056b3;
+}
+.botonRojo {
+    background-color: #ff1e00;
+    color: #fff;
+}
+
+.botonRojo:hover {
+    background-color: #b32400;
+}
+.contenedorBoton{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
 }

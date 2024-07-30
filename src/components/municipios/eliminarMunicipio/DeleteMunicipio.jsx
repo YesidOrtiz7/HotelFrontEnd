@@ -7,7 +7,7 @@ export default function DeleteMunicipio({municipio}){
     return(
         <div>
             <form id="delete-municipio-form" onSubmit={(e)=>deleteMunicipio(e,municipio,setMessage)}>
-                <input type="submit" value="Eliminar"/>
+                <input type="submit" value="Eliminar" className="boton botonRojo"/>
             </form>
             {message && <p>{message}</p>}
         </div>

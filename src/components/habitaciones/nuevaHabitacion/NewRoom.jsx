@@ -1,5 +1,3 @@
-import "./newRoom.css"
-
 import React, { useState, useEffect } from "react";
 import { addNewRoom } from "../useFetch";
 import { getRoomStatus } from "../estadosHabitacion/useFetch";
@@ -44,7 +42,7 @@ export default function NewRoom() {
     <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewRoom(event, formData, setMessage, clearForm)}>
-        <div>
+        <div className="inputGroup">
           <label>Numero Habitacion</label>
           <input
             name="roomNumber"
@@ -53,7 +51,7 @@ export default function NewRoom() {
             onChange={(e) => setRoomNumber(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Estado</label>
           <select value={idRoomStatus} onChange={(e) => setIdRoomStatus(parseInt(e.target.value))}>
             <option value="">Seleccione Estado</option>
@@ -64,7 +62,7 @@ export default function NewRoom() {
             ))}
           </select>
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Tipo</label>
           <select value={roomType} onChange={(e) => setRoomType(parseInt(e.target.value))}>
             <option value="">Seleccione Tipo</option>
@@ -75,7 +73,7 @@ export default function NewRoom() {
             ))}
           </select>
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Precio Habitacion</label>
           <input
             name="roomPrice24Hours"
@@ -84,7 +82,7 @@ export default function NewRoom() {
             onChange={(e) => setRoomPrice24Hours(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Numero de camas</label>
           <input
             name="bedsNumber"
@@ -93,7 +91,9 @@ export default function NewRoom() {
             onChange={(e) => setBedsNumber(e.target.value)}
           />
         </div>
-        <button type="submit">Enviar</button>
+        <div className="inputGroup">
+          <button type="submit" className="botonAzul boton">Enviar</button>
+        </div>
       </form>
     </div>
   );

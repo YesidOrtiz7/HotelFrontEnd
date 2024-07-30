@@ -11,7 +11,7 @@ export default function ReceptionistInformation({receptionist}){
                 <td>{receptionist.receptionistNames}</td>
                 <td>{receptionist.receptionistLastNames}</td>
                 <td>
-                    <button onClick={toggleExpand}>
+                    <button onClick={toggleExpand} className="boton botonAzul">
                         {isExpanded ? "Cerrar" : "Opciones"}
                     </button>
                 </td>
@@ -19,10 +19,10 @@ export default function ReceptionistInformation({receptionist}){
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
-                        <div style={{ display: 'flex', justifyContent: 'end' }}>
+                        <div className="contenedorBoton">
                             {/* <DeleteClient idClient={cliente.idCliente} /> */}
                             <form action={`/actualizar/${receptionist.idRecep}`} method="get">
-                                <input type="submit" value="Actualizar" />
+                                <input type="submit" value="Actualizar" className="boton botonAzul"/>
                             </form>
                         </div>
                     </td>

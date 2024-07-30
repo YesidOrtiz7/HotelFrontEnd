@@ -8,7 +8,7 @@ export default function DeleteRoomType(props){
     return (
         <div>
             <form id="delete-roomtype-form" onSubmit={(event) => deleteRoomType(event, props.idRoomType, setMessage)}>
-                <input type="submit" value="Eliminar" />
+                <input type="submit" value="Eliminar" className="boton botonRojo"/>
             </form>
             {message && <p>{message}</p>}
         </div>

@@ -17,7 +17,7 @@ export default function ChangeRoomStatus() {
     );
 
     return (
-        <div>
+        <div className="formulario">
             {message && <p>{message}</p>}
             {loading ? (
                 <p>Loading...</p>
@@ -34,7 +34,7 @@ export default function ChangeRoomStatus() {
 
                         ))}
                     </fieldset>
-                    <button type="submit">Aceptar</button>
+                    <button type="submit" className="boton botonAzul">Aceptar</button>
                 </form>
             )
             }

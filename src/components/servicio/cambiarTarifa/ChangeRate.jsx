@@ -94,16 +94,16 @@ export default function ChangeRate() {
     };
 
     return (
-        <div>
+        <div className="formulario">
             <h2>Cambio de tarifa</h2>
             {renderServiceDetails()}
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="inputGroup">
                     <label>Tarifa</label>
                     {renderRateOptions()}
                 </div>
                 <div>
-                    <button type="submit">Aceptar</button>
+                    <button type="submit" className="boton botonAzul">Aceptar</button>
                 </div>
             </form>
         </div>

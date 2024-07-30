@@ -48,7 +48,7 @@ export default function RoomStatusInformation({ roomStatus, handleCheckboxChange
             <td><DeleteRoomStatus idRoomStatus={roomStatus.idStatus} /></td>
             <td>
                 <form action={`/estadohabitacion/${roomStatus.idStatus}`} method="get">
-                    <input type="submit" value="Actualizar" />
+                    <input type="submit" value="Actualizar" className="boton botonAzul"/>
                 </form>
             </td>
         </tr>

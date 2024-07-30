@@ -15,9 +15,10 @@ export default function NewMunicipio() {
 
     return (
         <div className="formulario">
+            <h3>Registrar Nuevo Municipio</h3>
             {message && <p>{message}</p>}
             <form id="rate-form" onSubmit={(event) => addNewMunicipio(event, formData, setMessage, clearForm)}>
-                <div>
+                <div className="inputGroup">
 
                     <label>Nombre Municipio</label>
                     <input
@@ -28,7 +29,7 @@ export default function NewMunicipio() {
                     />
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" className="boton botonAzul">Enviar</button>
             </form>
         </div>
     );

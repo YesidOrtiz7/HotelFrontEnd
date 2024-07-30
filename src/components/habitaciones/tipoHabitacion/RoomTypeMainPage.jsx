@@ -20,10 +20,12 @@ export default function RoomTypeMainPage() {
             </div>
             {!loading &&
                 <div>
-                    <table>
+                    <table className="tabla">
                         <thead>
                             <tr>
                                 <th>Descripcion tipo habitacion</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

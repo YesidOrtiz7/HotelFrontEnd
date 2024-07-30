@@ -19,7 +19,7 @@ export default function NewRoomType() {
     <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewRoomType(event, formData, setMessage, clearForm)}>
-        <div>
+        <div className="inputGroup">
         
           <label>Descripcion tipo habitación</label>
           <input
@@ -30,7 +30,7 @@ export default function NewRoomType() {
           />
         </div>
         
-        <button type="submit">Enviar</button>
+        <button type="submit" className="boton botonAzul">Enviar</button>
       </form>
     </div>
   );

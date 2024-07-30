@@ -25,11 +25,11 @@ export default function UpdateReceptionist() {
         });
     }
     return (
-        <div>
+        <div className="formulario">
             <h2>Actualizar Recepcionista</h2>
             {message && <p>{message}</p>}
             <form id="update-receptionist-form" onSubmit={(event) => updateReceptionist(event, data, setMessage)}>
-                <div>
+                <div className="inputGroup">
                     <label>Documento</label>
                     <input
                         name="docRecep"
@@ -38,7 +38,7 @@ export default function UpdateReceptionist() {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Nombres</label>
                     <input
                         name="receptionistNames"
@@ -47,7 +47,7 @@ export default function UpdateReceptionist() {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Apellidos</label>
                     <input
                         name="receptionistLastNames"
@@ -56,7 +56,7 @@ export default function UpdateReceptionist() {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit">Actualizar</button>
+                <button type="submit" className="boton botonAzul">Actualizar</button>
             </form>
         </div>
     );

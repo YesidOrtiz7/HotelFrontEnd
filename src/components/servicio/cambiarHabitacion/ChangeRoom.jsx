@@ -91,16 +91,16 @@ export default function ChangeRoom() {
     };
 
     return (
-        <div>
+        <div className="formulario">
             <h2>Cambio de habitación</h2>
             {renderServiceDetails()}
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="inputGroup">
                     <label>Habitación</label>
                     {renderRoomOptions()}
                 </div>
                 <div>
-                    <button type="submit">Aceptar</button>
+                    <button type="submit" className="boton botonAzul">Aceptar</button>
                 </div>
             </form>
         </div>

@@ -109,7 +109,7 @@ export default function AddNewService() {
         <div className="formulario">
             {message && <p>{message}</p>}
             <form id="service-form" onSubmit={(e) => createNewService(e, formData, setMessage, clearForm)}>
-                <div>
+                <div className="inputGroup">
                     <label>Recepcionista</label>
                     <select value={idRecep} onChange={(e) => setIdRecep(parseInt(e.target.value))}>
                         <option value="">Seleccione Recepcionista</option>
@@ -120,7 +120,7 @@ export default function AddNewService() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label htmlFor="documentOfClient">Documento Cliente</label>
                     <input type="text"
                         id="documentOfClient"
@@ -132,7 +132,7 @@ export default function AddNewService() {
                     {clientData != null &&
                         <p>{clientData.primerNombreCliente + " " + clientData.segundoNombreCliente + " " + clientData.primerApellidoCliente + " " + clientData.segundoApellidoCliente}</p>}
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Habitacion</label>
                     <select value={idRoom} onChange={(e) => setIdRoom(parseInt(e.target.value))}>
                         <option value="">Seleccione Habitacion</option>
@@ -145,7 +145,7 @@ export default function AddNewService() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Tipo de Tarifa</label>
                     <select value={idRateType} onChange={(e) => setIdRateType(parseInt(e.target.value))}>
                         <option value="">Seleccione Tarifa</option>
@@ -156,7 +156,7 @@ export default function AddNewService() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Procedencia</label>
                     <select value={cliProcedencia} onChange={(e) => setCliProcedencia(parseInt(e.target.value))}>
                         <option value="">Seleccione Municipio</option>
@@ -167,7 +167,7 @@ export default function AddNewService() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Destino</label>
                     <select value={cliDestino} onChange={(e) => setCliDestino(parseInt(e.target.value))}>
                         <option value="">Seleccione Municipio</option>
@@ -178,7 +178,7 @@ export default function AddNewService() {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Tipo de pago</label>
                     <select value={idTipoPago} onChange={(e) => setIdTipoPago(parseInt(e.target.value))}>
                         <option value="">Seleccione tipo de pago</option>
@@ -196,7 +196,7 @@ export default function AddNewService() {
                         value={payment}
                         onChange={(e) => setPayment(e.target.value)} />
                 </div> */}
-                <div>
+                <div className="inputGroup">
                     <label>Fecha Entrada</label>
                     <input
                         type="datetime-local"
@@ -206,7 +206,7 @@ export default function AddNewService() {
                         onChange={(e) => handleDateChange(e, setFechaEntrada)}
                     />
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Fecha salida</label>
                     <input
                         type="datetime-local"
@@ -217,7 +217,7 @@ export default function AddNewService() {
                     />
                 </div>
                 <div>
-                    <button type="submit">Crear</button>
+                    <button type="submit" className="boton botonAzul">Crear</button>
                 </div>
             </form>
         </div>

@@ -32,7 +32,7 @@ export default function NewClient() {
     <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewClient(event, formData, setMessage, clearForm)}>
-        <div>
+        <div className="inputGroup">
           <label>Documento</label>
           <input
             name="documentoCliente"
@@ -41,7 +41,7 @@ export default function NewClient() {
             onChange={(e) => setDocumentoCliente(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Primer Nombre</label>
           <input
             name="primerNombreCliente"
@@ -50,7 +50,7 @@ export default function NewClient() {
             onChange={(e) => setPrimerNombreCliente(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Segundo Nombre</label>
           <input
             name="segundoNombreCliente"
@@ -59,7 +59,7 @@ export default function NewClient() {
             onChange={(e) => setSegundoNombreCliente(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Primer Apellido</label>
           <input
             name="primerApellidoCliente"
@@ -68,7 +68,7 @@ export default function NewClient() {
             onChange={(e) => setPrimerApellidoCliente(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Segundo Apellido</label>
           <input
             name="segundoApellidoCliente"
@@ -77,7 +77,7 @@ export default function NewClient() {
             onChange={(e) => setSegundoApellidoCliente(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Numero Celular</label>
           <input
             name="celularCliente"
@@ -86,7 +86,7 @@ export default function NewClient() {
             onChange={(e) => setCelularCliente(e.target.value)}
           />
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" className="boton botonAzul">Enviar</button>
       </form>
     </div>
   );

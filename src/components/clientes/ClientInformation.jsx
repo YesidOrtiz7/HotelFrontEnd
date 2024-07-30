@@ -17,7 +17,7 @@ export default function ClientInformation({ cliente }) {
                 <td>{cliente.segundoApellidoCliente}</td>
                 <td>{cliente.celularCliente}</td>
                 <td>
-                    <button onClick={toggleExpand}>
+                    <button onClick={toggleExpand} className="boton botonAzul">
                         {isExpanded ? "Cerrar" : "Opciones"}
                     </button>
                 </td>
@@ -25,10 +25,10 @@ export default function ClientInformation({ cliente }) {
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
-                        <div style={{ display: 'flex', justifyContent: 'end' }}>
+                        <div className="contenedorBoton">
                             <DeleteClient idClient={cliente.idCliente} />
                             <form action={`/cliente/${cliente.idCliente}`} method="get">
-                                <input type="submit" value="Actualizar" />
+                                <input type="submit" value="Actualizar" className="botonAzul boton"/>
                             </form>
                         </div>
                     </td>

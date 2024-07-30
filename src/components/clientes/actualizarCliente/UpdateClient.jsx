@@ -29,11 +29,11 @@ export default function UpdateClient() {
   };
 
   return (
-    <div>
+    <div className="formulario">
       <h2>Actualizar Cliente</h2>
       {message && <p>{message}</p>}
       <form id="update-client-form" onSubmit={(event) => updateClient(event, clientData, setMessage)}>
-        <div>
+        <div className="inputGroup">
           <label>Documento</label>
           <input
             name="documentoCliente"
@@ -42,7 +42,7 @@ export default function UpdateClient() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Primer Nombre</label>
           <input
             name="primerNombreCliente"
@@ -51,7 +51,7 @@ export default function UpdateClient() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Segundo Nombre</label>
           <input
             name="segundoNombreCliente"
@@ -60,7 +60,7 @@ export default function UpdateClient() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Primer Apellido</label>
           <input
             name="primerApellidoCliente"
@@ -69,7 +69,7 @@ export default function UpdateClient() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Segundo Apellido</label>
           <input
             name="segundoApellidoCliente"
@@ -78,7 +78,7 @@ export default function UpdateClient() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label>Numero Celular</label>
           <input
             name="celularCliente"
@@ -87,7 +87,7 @@ export default function UpdateClient() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Actualizar</button>
+        <button type="submit" className="boton botonAzul">Actualizar</button>
       </form>
     </div>
   );

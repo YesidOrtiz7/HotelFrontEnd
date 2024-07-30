@@ -25,12 +25,12 @@ export default function UpdateRoomType() {
   };
 
   return (
-    <div>
+    <div className="formulario">
       <Link id="roomStatus" to="/estadoshabitaciones">Gestionar estados de habitaciones</Link>
       <h2>Actualizar tipo habitacion</h2>
       {message && <p>{message}</p>}
       <form id="update-client-form" onSubmit={(event) => updateRoomStatus(event, roomStatusData, setMessage)}>
-        <div>
+        <div className="inputGroup">
           <label>Descripcion estado habitacion</label>
           <input
             name="statusName"
@@ -39,7 +39,7 @@ export default function UpdateRoomType() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Actualizar</button>
+        <button type="submit" className="boton botonAzul">Actualizar</button>
       </form>
     </div>
   );

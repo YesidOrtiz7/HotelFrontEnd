@@ -11,7 +11,7 @@ export default function MunicipioInformation({ municipio }) {
             <tr key={municipio.idMunicipios}>
                 <td>{municipio.nombreMun}</td>
                 <td>
-                    <button onClick={toggleExpand}>
+                    <button onClick={toggleExpand} className="boton botonAzul">
                         {isExpanded ? "Cerrar" : "Opciones"}
                     </button>
                 </td>
@@ -19,10 +19,10 @@ export default function MunicipioInformation({ municipio }) {
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
-                        <div style={{ display: 'flex', justifyContent: 'end' }}>
+                        <div className="contenedorBoton">
                             <DeleteMunicipio municipio={municipio}/>
                             <form action={`/actualizarmunicipio/${municipio.idMunicipios}`} method="get">
-                                <input type="submit" value="Actualizar" />
+                                <input type="submit" value="Actualizar" className="boton botonAzul"/>
                             </form>
                         </div>
                     </td>

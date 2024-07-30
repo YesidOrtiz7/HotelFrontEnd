@@ -20,7 +20,7 @@ export default function NewRate() {
         <div className="formulario">
             {message && <p>{message}</p>}
             <form id="rate-form" onSubmit={(event) => addNewRate(event, formData, setMessage, clearForm)}>
-                <div>
+                <div className="inputGroup">
 
                     <label>Descripcion Tarifa</label>
                     <input
@@ -29,6 +29,8 @@ export default function NewRate() {
                         value={descripcionTarifa}
                         onChange={(e) => setDescripcionTarifa(e.target.value)}
                     />
+                </div>
+                <div className="inputGroup">
                     <label>Porcentaje tarifa</label>
                     <input
                         name="porcentajeTarifa"
@@ -39,7 +41,7 @@ export default function NewRate() {
 
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" className="boton botonAzul">Enviar</button>
             </form>
         </div>
     );

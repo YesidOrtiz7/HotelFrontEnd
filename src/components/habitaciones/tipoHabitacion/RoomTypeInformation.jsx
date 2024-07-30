@@ -8,7 +8,7 @@ export default function RoomTypeInformation(props) {
             <td><DeleteRoomType idRoomType={roomType.idRoomType} /></td>
              <td>
                 <form action={`/tipohabitacion/${roomType.idRoomType}`} method="get">
-                    <input type="submit" value="Actualizar" />
+                    <input type="submit" value="Actualizar" className="boton botonAzul"/>
                 </form>
             </td>
         </tr>

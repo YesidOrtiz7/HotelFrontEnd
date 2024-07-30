@@ -14,7 +14,7 @@ export default function GetReceptionist() {
                 <h2>Buscar Recepcionista</h2>
                 <form id="get-receptionist-form"
                     onSubmit={(e) => getReceptionist(e, queryType, idOrDocument, setMessage, setData)}>
-                    <div>
+                    <div className="inputGroup">
                         <label htmlFor="byId">Buscar recepcionista por ID</label>
                         <input
                             type="radio"
@@ -24,6 +24,8 @@ export default function GetReceptionist() {
                             checked={queryType === 'byId'}
                             onChange={(e) => setQueryType(e.target.value)}
                         />
+                    </div>
+                    <div className="inputGroup">
                         <label htmlFor="byDocument">Buscar recepcionista por Documento</label>
                         <input
                             type="radio"
@@ -34,7 +36,7 @@ export default function GetReceptionist() {
                             onChange={(e) => setQueryType(e.target.value)}
                         />
                     </div>
-                    <div>
+                    <div className="inputGroup">
                         <input
                             type="text"
                             name="idOrDocument"
@@ -44,7 +46,7 @@ export default function GetReceptionist() {
                         />
                     </div>
                     <div>
-                        <input type="submit" value="Consultar" />
+                        <input type="submit" value="Consultar" className="boton botonAzul" />
                     </div>
                 </form>
             </div>

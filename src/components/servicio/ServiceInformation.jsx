@@ -32,7 +32,7 @@ export default function ServiceInformation({ service, setMessage, updateService 
                 <td>{service.idTipoPago.descripcionPago}</td>
                 <td>
                     {service.state &&
-                        <button onClick={toggleExpand}>
+                        <button onClick={toggleExpand} className="boton botonAzul">
                             {isExpanded ? "Cerrar" : "Acciones"}
                         </button>
                     }
@@ -41,23 +41,23 @@ export default function ServiceInformation({ service, setMessage, updateService 
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
-                        <div style={{ display: 'flex', justifyContent: 'end' }}>
+                        <div className="contenedorBoton">
 
                             <form id="payment-button" onSubmit={e => handleSubmit(payService, e, { id: service.idService })}>
-                                <input type="submit" value="Pagar" />
+                                <input className="boton botonAzul" type="submit" value="Pagar" />
                             </form>
                             <form id="endOfService-button" onSubmit={e => handleSubmit(closeService, e, { id: service.idService })}>
-                                <input type="submit" value="Terminar servicio" disabled={!service.itsPaid} />
+                                <input className="boton botonAzul" type="submit" value="Terminar servicio" disabled={!service.itsPaid} />
                             </form>
 
                             <form action={`/ampliar/${service.idService}`} method="get">
-                                <input type="submit" value="Ampliar Servicio" />
+                                <input className="boton botonAzul" type="submit" value="Ampliar Servicio" />
                             </form>
                             <form action={`/cambiarHabitacion/${service.idService}`} method="get">
-                                <input type="submit" value="Cambiar Habitacion" />
+                                <input className="boton botonAzul" type="submit" value="Cambiar Habitacion" />
                             </form>
                             <form action={`/cambiartarifa/${service.idService}`} method="get">
-                                <input type="submit" value="Cambiar Tarifa" />
+                                <input className="boton botonAzul" type="submit" value="Cambiar Tarifa" />
                             </form>
 
                         </div>

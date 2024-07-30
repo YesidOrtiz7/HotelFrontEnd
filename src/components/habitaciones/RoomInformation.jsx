@@ -15,7 +15,7 @@ export default function RoomInformation({ room }) {
                 <td>{room.roomPrice24Hours}</td>
                 <td>{room.bedsNumber}</td>
                 <td>
-                    <button onClick={toggleExpand}>
+                    <button className="boton botonAzul" onClick={toggleExpand}>
                         {isExpanded ? "Cerrar" : "Opciones"}
                     </button>
                 </td>
@@ -23,13 +23,13 @@ export default function RoomInformation({ room }) {
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
-                        <div style={{ display: 'flex', justifyContent: 'end' }}>
+                        <div className="contenedorBoton">
                             <form action={`/cambiarEstado/${room.idRoom}`} method="get">
-                                <input type="submit" value="Cambiar Estado" />
+                                <input type="submit" value="Cambiar Estado" className="boton botonAzul"/>
                             </form>
                             <DeleteRoom idRoom={room.idRoom} />
                             <form action={`/actualizarhabitacion/${room.idRoom}`} method="get">
-                                <input type="submit" value="Actualizar" />
+                                <input type="submit" value="Actualizar" className="boton botonAzul"/>
                             </form>
                         </div>
                     </td>

@@ -12,7 +12,7 @@ export default function RateInformation({rate}){
                 <td>{rate.descripcionTarifa}</td>
                 <td className="columna_centrada">{rate.porcentajeTarifa}%</td>
                 <td>
-                    <button onClick={toggleExpand}>
+                    <button onClick={toggleExpand} className="boton botonAzul">
                         {isExpanded ? "Cerrar" : "Opciones"}
                     </button>
                 </td>
@@ -20,13 +20,13 @@ export default function RateInformation({rate}){
             {isExpanded && (
                 <tr>
                     <td colSpan="7">
-                        <div style={{ display: 'flex', justifyContent: 'end' }}>
+                        <div className="contenedorBoton">
                             {/* <form action={`/cambiarEstado/${room.idRoom}`} method="get">
                                 <input type="submit" value="Cambiar Estado" />
                             </form> */}
                             <DeleteRate rate={rate}/>
                             <form action={`/actualizartarifa/${rate.idTipoTarifa}`} method="get">
-                                <input type="submit" value="Actualizar" />
+                                <input type="submit" value="Actualizar" className="boton botonAzul"/>
                             </form>
                         </div>
                     </td>

@@ -11,7 +11,7 @@ export default function TipoPagoInformation({ paymentType }) {
             <tr key={paymentType.idPago}>
                 <td>{paymentType.descripcionPago}</td>
                 <td>
-                    <button onClick={toggleExpand}>
+                    <button onClick={toggleExpand} className="boton botonAzul">
                         {isExpanded ? "Cerrar" : "Opciones"}
                     </button>
                 </td>

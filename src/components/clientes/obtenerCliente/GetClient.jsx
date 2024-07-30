@@ -13,7 +13,7 @@ export default function GetClient() {
     <div>
       <h2>Buscar Cliente</h2>
       <form id="get-client-form" onSubmit={(event) => getClient(event, queryType, idOrDocument, setMessage, setClient)}>
-        <div>
+        <div className="inputGroup">
           <label htmlFor="byId">Buscar cliente por ID</label>
           <input
             type="radio"
@@ -24,7 +24,7 @@ export default function GetClient() {
             onChange={(e) => setQueryType(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <label htmlFor="byDocument">Buscar cliente por Documento</label>
           <input
             type="radio"
@@ -35,7 +35,7 @@ export default function GetClient() {
             onChange={(e) => setQueryType(e.target.value)}
           />
         </div>
-        <div>
+        <div className="inputGroup">
           <input
             type="text"
             name="idOrDocument"
@@ -45,12 +45,12 @@ export default function GetClient() {
           />
         </div>
         <div>
-          <input type="submit" value="Consultar" />
+          <input type="submit" value="Consultar" className="boton botonAzul"/>
         </div>
       </form>
       {message && <p>{message}</p>}
       {client &&
-        <table>
+        <table className="tabla">
           <thead>
             <tr>
               <th>Documento</th>
@@ -59,6 +59,7 @@ export default function GetClient() {
               <th>Primer Apellido</th>
               <th>Segundo Apellido</th>
               <th>Celular</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

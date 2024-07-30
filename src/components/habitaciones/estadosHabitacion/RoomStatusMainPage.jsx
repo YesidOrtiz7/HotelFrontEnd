@@ -55,13 +55,15 @@ export default function RoomStatusMainPage() {
 
             {!loading && (
                 <div>
-                    <table>
+                    <table className="tabla">
                         <thead>
                             <tr>
                                 <th>Descripcion estado habitacion</th>
                                 <th>Es visible en la pestaña de creacion de servicio</th>
                                 <th>Es el estado que se asigna al iniciar el servicio</th>
                                 <th>Es el estado que se asigna al terminar el servicio</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

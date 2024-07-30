@@ -6,7 +6,7 @@ import { getRoomStatus } from "../estadosHabitacion/useFetch";
 import { getRoomType } from "../tipoHabitacion/useFetch";
 
 export default function UpdateRoom() {
-//const [idRoom, setIdRoom]=useState('');
+  //const [idRoom, setIdRoom]=useState('');
   const [roomNumber, setRoomNumber] = useState('');
   const [idRoomStatus, setIdRoomStatus] = useState('');
   const [roomStatuses, setRoomStatuses] = useState([]);
@@ -34,7 +34,7 @@ export default function UpdateRoom() {
     setBedsNumber('');
   };
 
-  const { roomId }=useParams();
+  const { roomId } = useParams();
 
   useEffect(() => {
     getRoomStatus(setRoomStatuses, setMessage, setLoading);
@@ -48,7 +48,7 @@ export default function UpdateRoom() {
     roomType: roomTypes.find(type => type.idRoomType === parseInt(roomType)),
     roomPrice24Hours,
     bedsNumber,
-    idRoom: roomId 
+    idRoom: roomId
   };
 
   const handleSubmit = (event) => {
@@ -57,13 +57,16 @@ export default function UpdateRoom() {
   };
 
   return (
-    <div>
+    <div className="formulario">
       {message && <p>{message}</p>}
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <form id="update-room-form" onSubmit={handleSubmit}>
-          <div>
+        <form
+          id="update-room-form"
+          onSubmit={handleSubmit}
+          >
+          <div className="inputGroup">
             <label>Numero Habitacion</label>
             <input
               name="roomNumber"
@@ -71,6 +74,8 @@ export default function UpdateRoom() {
               value={roomNumber}
               onChange={(e) => setRoomNumber(e.target.value)}
             />
+          </div>
+          <div className="inputGroup">
             <label>Room Status</label>
             <select value={idRoomStatus} onChange={(e) => setIdRoomStatus(e.target.value)}>
               <option value="">Select Status</option>
@@ -80,6 +85,8 @@ export default function UpdateRoom() {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="inputGroup">
             <label>Room Type</label>
             <select value={roomType} onChange={(e) => setRoomType(e.target.value)}>
               <option value="">Select Type</option>
@@ -89,6 +96,8 @@ export default function UpdateRoom() {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="inputGroup">
             <label>Precio Habitacion</label>
             <input
               name="roomPrice24Hours"
@@ -96,6 +105,8 @@ export default function UpdateRoom() {
               value={roomPrice24Hours}
               onChange={(e) => setRoomPrice24Hours(e.target.value)}
             />
+          </div>
+          <div className="inputGroup">
             <label>Numero de camas</label>
             <input
               name="bedsNumber"
@@ -104,7 +115,9 @@ export default function UpdateRoom() {
               onChange={(e) => setBedsNumber(e.target.value)}
             />
           </div>
-          <button type="submit">Actualizar</button>
+          <div className="inputGroup">
+            <button type="submit" className="boton botonAzul">Actualizar</button>
+          </div>
         </form>
       )}
     </div>

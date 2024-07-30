@@ -24,11 +24,11 @@ export default function UpdateRate() {
         });
     };
     return (
-        <div>
+        <div className="formulario">
             <h2>Actualizar Tarifa</h2>
             {message && <p>{message}</p>}
             <form id="update-rate-form" onSubmit={(event) => updateRate(event, rateData, setMessage)}>
-                <div>
+                <div className="inputGroup">
                     <label>Descripcion Tarifa</label>
                     <input
                         name="descripcionTarifa"
@@ -37,7 +37,7 @@ export default function UpdateRate() {
                         onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Porcentaje Tarifa</label>
                     <input
                         name="porcentajeTarifa"
@@ -46,7 +46,7 @@ export default function UpdateRate() {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit">Actualizar</button>
+                <button type="submit" className="boton botonAzul">Actualizar</button>
             </form>
         </div>
     );

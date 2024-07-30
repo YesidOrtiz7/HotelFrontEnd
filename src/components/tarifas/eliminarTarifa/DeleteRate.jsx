@@ -7,7 +7,7 @@ export default function DeleteRate({rate}){
     return(
         <div>
             <form id="delete-rate-form" onSubmit={(event) => deleteRate(event, rate, setMessage)}>
-                <input type="submit" value="Eliminar" />
+                <input type="submit" value="Eliminar" className="boton botonRojo"/>
             </form>
             {message && <p>{message}</p>}
         </div>

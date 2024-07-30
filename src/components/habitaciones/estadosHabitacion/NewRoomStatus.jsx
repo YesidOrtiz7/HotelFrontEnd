@@ -19,7 +19,7 @@ export default function NewRoomStatus() {
     <div className="formulario">
       {message && <p>{message}</p>}
       <form id="client-form" onSubmit={(event) => addNewRoomStatus(event, formData, setMessage, clearForm)}>
-        <div>
+        <div className="inputGroup">
         
           <label>Descripcion estado habitación</label>
           <input
@@ -30,7 +30,7 @@ export default function NewRoomStatus() {
           />
         </div>
         
-        <button type="submit">Enviar</button>
+        <button type="submit" className="boton botonAzul">Enviar</button>
       </form>
     </div>
   );

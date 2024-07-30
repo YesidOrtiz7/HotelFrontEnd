@@ -24,7 +24,7 @@ export default function NewReceptionist() {
             <form id="receptionist-form"
             onSubmit={(e) => addNewReceptionist(e, formData, setMessage, clearForm)}
             >
-                <div>
+                <div className="inputGroup">
                     <label>Documento</label>
                     <input
                         name="docRecep"
@@ -33,7 +33,7 @@ export default function NewReceptionist() {
                         onChange={(e) => setDocRecep(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Nombres</label>
                     <input
                         name="receptionistNames"
@@ -42,7 +42,7 @@ export default function NewReceptionist() {
                         onChange={(e) => setReceptionistNames(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="inputGroup">
                     <label>Apellidos</label>
                     <input
                         name="receptionistLastNames"
@@ -51,7 +51,7 @@ export default function NewReceptionist() {
                         onChange={(e) => setReceptionistLastNames(e.target.value)}
                     />
                 </div>
-                <button type="submit">Enviar</button>
+                <button type="submit" className="boton botonAzul">Enviar</button>
             </form>
         </div>
     );

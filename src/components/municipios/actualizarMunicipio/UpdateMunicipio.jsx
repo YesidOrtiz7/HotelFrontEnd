@@ -25,11 +25,11 @@ export default function UpdateMunicipio() {
     };
 
     return (
-        <div>
+        <div className="formulario">
             <h2>Actualizar Datos del Municipio</h2>
             {message && <p>{message}</p>}
             <form id="update-municipio-form" onSubmit={(event) => updateMunicipio(event, municipioData, setMessage)}>
-                <div>
+                <div className="inputGroup">
                     <label>Nombre Municipio</label>
                     <input
                         name="nombreMun"
@@ -38,7 +38,7 @@ export default function UpdateMunicipio() {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit">Actualizar</button>
+                <button type="submit" className="boton botonAzul">Actualizar</button>
             </form>
         </div>
     );

@@ -17,7 +17,7 @@ export default function NewTipoPago() {
         <div className="formulario">
             {message && <p>{message}</p>}
             <form id="payment-type-form" onSubmit={(event) => addNewPaymentType(event, formData, setMessage, clearForm)}>
-                <div>
+                <div className="inputGroup">
 
                     <label>Descripcion del tipo de pago</label>
                     <input
@@ -28,7 +28,7 @@ export default function NewTipoPago() {
                     />
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" className="boton botonAzul">Enviar</button>
             </form>
         </div>
     );
