@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { getServices } from "../useFetch";
+//import { getServices } from "../useFetch";
+import {getQuery} from "../../useFetch";
 import ServiceInformation from "../ServiceInformation";
 
 export default function ServiceMainPage() {
@@ -10,7 +11,7 @@ export default function ServiceMainPage() {
     const [message, setMessage] = useState(null);
 
     useEffect(() => {
-        getServices(setData, setMessage, setLoading);
+        getQuery(setData, setMessage, setLoading,`servicio/todos`);
     }, []);
 
     const updateService = (id, updatedService) => {

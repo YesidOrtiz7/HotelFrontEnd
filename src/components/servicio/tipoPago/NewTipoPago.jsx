@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { addNewPaymentType } from "./useFetch";
+//import { addNewPaymentType } from "./useFetch";
+import { postQueryWithRedirection } from "../../useFetch";
 export default function NewTipoPago() {
     const [descripcionPago, setDescripcionPago] = useState('');
 
@@ -16,7 +17,7 @@ export default function NewTipoPago() {
     return (
         <div className="formulario">
             {message && <p>{message}</p>}
-            <form id="payment-type-form" onSubmit={(event) => addNewPaymentType(event, formData, setMessage, clearForm)}>
+            <form id="payment-type-form" onSubmit={(event) => postQueryWithRedirection(event, formData, setMessage, clearForm,"tipoPago/nuevo","http://localhost:3000/tiposdepago")}>
                 <div className="inputGroup">
 
                     <label>Descripcion del tipo de pago</label>

@@ -147,7 +147,7 @@ export async function changeRoomStatus(event, idStatus,idRoom, setMessage) {
     event.preventDefault();
 
     try {
-        const response = await fetch(`${API_SERVER}cambiarEstado/${idStatus}/${idRoom}`, {
+        const response = await fetch(`${API_SERVER}cambiarEstado/${idRoom}/${idStatus}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

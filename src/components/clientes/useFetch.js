@@ -49,17 +49,26 @@ export async function getClient(event, queryType, idOrDocument, setMessage, setC
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse=await response.json();
+            setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+            setClient(null);
+            return;
         }
 
         const result = await response.json();
-        //    console.log('Success:', result);
-        setMessage(`Client found:`);
-        setClient(result);
+        
+        if (result!=null){
+            setMessage(`Cliente encontrado:`);
+            setClient(result);
+        }else{
+            setClient(null);
+        }
+        
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to fetch client.');
+        setClient(null);
+        setMessage(error.message||'Failed to fetch client.');
     }
 }
 

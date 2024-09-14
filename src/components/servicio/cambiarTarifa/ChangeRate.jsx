@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { getServiceById, changeRateOfService } from "../useFetch";
-import { getRate } from "../../tarifas/useFetch";
+import { getQuery, putQueryClearForm } from "../../useFetch";
+//import { getServiceById, changeRateOfService } from "../useFetch";
+//import { getRate } from "../../tarifas/useFetch";
 
 export default function ChangeRate() {
     const [serviceData, setServiceData] = useState({ data: {}, loading: true, message: '' });
@@ -14,6 +15,9 @@ export default function ChangeRate() {
     const { idService } = useParams();
     const isMounted = useRef(true);
 
+    const ENDPOINT=`servicio/`;
+    const ENDPOINT_Tarifas=`tarifas/`;
+
     useEffect(() => {
         return () => {
             isMounted.current = false;
@@ -21,32 +25,52 @@ export default function ChangeRate() {
     }, []);
 
     useEffect(() => {
-        getRate(
+        /*getRate(
             (rates) => isMounted.current && setRatesData({allRates: rates, loading: false, message: ''}),
             (message) => isMounted.current && setRatesData((prev)=>({...prev,message})),
             ()=>isMounted.current && setRatesData((prev)=>({...prev, loading: false}))
+        );*/
+        getQuery(
+            (rates) => isMounted.current && setRatesData({allRates: rates, loading: false, message: ''}),
+            (message) => isMounted.current && setRatesData((prev)=>({...prev,message})),
+            ()=>isMounted.current && setRatesData((prev)=>({...prev, loading: false})),
+            `${ENDPOINT_Tarifas}todas`
         );
     }, []);
 
     useEffect(() => {
-        getServiceById(
+        /*getServiceById(
             idService,
             (data) => isMounted.current && setServiceData({ data, loading: false, message: '' }),
             (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
             () => isMounted.current && setServiceData((prev) => ({ ...prev, loading: false }))
+        );*/
+        getQuery(
+            (data) => isMounted.current && setServiceData({ data, loading: false, message: '' }),
+            (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
+            () => isMounted.current && setServiceData((prev) => ({ ...prev, loading: false })),
+            `${ENDPOINT}id/${idService}`
         );
     }, [idService]);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         const formData = {
             idService: idService,
             rateId: rateId,
         };
-        changeRateOfService(
+        /*changeRateOfService(
+            e,
             formData,
             (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
-            () => isMounted.current && setRoomNumber(0)
+            () => isMounted.current && setRateId(0)
+        );*/
+        putQueryClearForm(
+            e,
+            formData,
+            (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
+            () => isMounted.current && setRateId(0),
+            `${ENDPOINT}cambiarTarifa`
         );
     };
 

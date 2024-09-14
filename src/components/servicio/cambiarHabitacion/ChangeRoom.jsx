@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { getServiceById, changeRoomOfService } from "../useFetch";
-import { getRooms } from "../../habitaciones/useFetch";
+import { getQuery, putQueryClearForm } from "../../useFetch";
+//import { getServiceById, changeRoomOfService } from "../useFetch";
+//import { getRooms } from "../../habitaciones/useFetch";
 
 export default function ChangeRoom() {
     const [serviceData, setServiceData] = useState({ data: {}, loading: true, message: '' });
@@ -9,6 +10,8 @@ export default function ChangeRoom() {
     const [roomNumber, setRoomNumber] = useState(0);
     const { idService } = useParams();
     const isMounted = useRef(true);
+    const ENDPOINT=`servicio/`;
+    const ENDPOINT_Habitaciones=`habitaciones/`;
 
     useEffect(() => {
         return () => {
@@ -17,32 +20,52 @@ export default function ChangeRoom() {
     }, []);
 
     useEffect(() => {
-        getRooms(
+        /*getRooms(
             (rooms) => isMounted.current && setRoomsData({ allRooms: rooms, loading: false, message: '' }),
             (message) => isMounted.current && setRoomsData((prev) => ({ ...prev, message })),
             () => isMounted.current && setRoomsData((prev) => ({ ...prev, loading: false }))
+        );*/
+        getQuery(
+            (rooms) => isMounted.current && setRoomsData({ allRooms: rooms, loading: false, message: '' }),
+            (message) => isMounted.current && setRoomsData((prev) => ({ ...prev, message })),
+            () => isMounted.current && setRoomsData((prev) => ({ ...prev, loading: false })),
+            `${ENDPOINT_Habitaciones}todas`
         );
     }, []);
 
     useEffect(() => {
-        getServiceById(
+        /*getServiceById(
             idService,
             (data) => isMounted.current && setServiceData({ data, loading: false, message: '' }),
             (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
             () => isMounted.current && setServiceData((prev) => ({ ...prev, loading: false }))
+        );*/
+        getQuery(
+            (data) => isMounted.current && setServiceData({ data, loading: false, message: '' }),
+            (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
+            () => isMounted.current && setServiceData((prev) => ({ ...prev, loading: false })),
+            `${ENDPOINT}id/${idService}`
         );
     }, [idService]);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         const formData = {
             idService: idService,
             roomNumber: roomNumber,
         };
-        changeRoomOfService(
+        /*changeRoomOfService(
+            e,
             formData,
             (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
             () => isMounted.current && setRoomNumber(0)
+        );*/
+        putQueryClearForm(
+            e,
+            formData,
+            (message) => isMounted.current && setServiceData((prev) => ({ ...prev, message })),
+            () => isMounted.current && setRoomNumber(0),
+            `${ENDPOINT}nuevaHabitacion`
         );
     };
 
@@ -75,6 +98,7 @@ export default function ChangeRoom() {
     const renderRoomOptions = () => {
         if (roomsData.loading) return <div>Loading...</div>;
         if (roomsData.message) return <div>{roomsData.message}</div>;
+        if (serviceData.message) return <select></select>;
 
         return (
             <select value={roomNumber} onChange={(e) => setRoomNumber(parseInt(e.target.value))}>
@@ -83,7 +107,7 @@ export default function ChangeRoom() {
                     .filter(room => room.idRoomStatus.visibleOnSelection)
                     .map(room => (
                         <option key={room.idRoom} value={room.idRoom}>
-                            {room.roomNumber + " " + room.idRoomStatus.statusName}
+                            {room.roomNumber + " " + room.idRoomStatus.statusName+" precio:"+room.roomPrice24Hours}
                         </option>
                     ))}
             </select>

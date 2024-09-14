@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TipoPagoInformation from "./TipoPagoInformation";
-import { getPaymentTypes } from "./useFetch";
+//import { getPaymentTypes } from "./useFetch";
+import { getQuery } from "../../useFetch";
 
 export default function TipoPagoMainPage() {
     const [data, setData] = useState(null);
@@ -10,11 +11,8 @@ export default function TipoPagoMainPage() {
 
     useEffect(() => {
 
-        getPaymentTypes(setData, setMessage, setLoading);
+        getQuery(setData, setMessage, setLoading,"tipoPago/todos");
     }, []);
-
-    // idPago integer($int32)
-    // descripcionPago string
 
 
     return (

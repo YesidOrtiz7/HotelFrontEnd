@@ -27,7 +27,7 @@ export async function getServices(setData, setMessage, setLoading) {
         setLoading(false);
     }
 }
-export async function getServiceById(id, setData, setMessage, setLoading) {
+export async function getServiceById(id, setData, setMessage, setLoading) {//<----------------------------------------
     try {
         setLoading(true);
         const response = await fetch(`${API_SERVER}id/${id}`, {
@@ -38,7 +38,11 @@ export async function getServiceById(id, setData, setMessage, setLoading) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse = await response.json();
+            console.log(errorResponse);
+            setMessage(errorResponse.errorMessage || `HTTP error! status: ${response.status}`);
+            setLoading(false);
+            return;
         }
 
         const result = await response.json();
@@ -48,14 +52,14 @@ export async function getServiceById(id, setData, setMessage, setLoading) {
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to fetch.');
+        setMessage(error.message || 'Failed to fetch.');
         setLoading(false);
     }
 }
 export async function createNewService(event, formData, setMessage, clearForm) {
     event.preventDefault();
 
-    console.log(formData);
+    //console.log(formData);
 
     try {
         const response = await fetch(`${API_SERVER}nuevo`, {
@@ -67,17 +71,19 @@ export async function createNewService(event, formData, setMessage, clearForm) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse = await response.json();
+            setMessage(errorResponse.errorMessage || `HTTP error! status: ${response.status}`);
+            return;
         }
 
-        const result = await response.json();
-        console.log('Success:', result);
-        setMessage('Successfully created!');
+        //const result = await response.json();
+        //console.log('Success:', result);
+        setMessage('Creado!');
         clearForm();
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to create.');
+        setMessage(error.message || 'No se pudo crear.');
     }
 }
 export async function payService(event, formData, setMessage) {
@@ -93,7 +99,9 @@ export async function payService(event, formData, setMessage) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse = await response.json();
+            setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+            return;
         }
 
         let result;
@@ -102,20 +110,21 @@ export async function payService(event, formData, setMessage) {
         } catch (e) {
             result = null;
         }
+        setMessage('Servicio pagado.');
 
         if (result) {
-            console.log('Success:', result);
-            setMessage('Service paid.');
+            //console.log('Success:', result);
+            //setMessage('Service paid.');
             //setMessage(`Paid service: ${JSON.stringify(result)}`);
             return result; // Devuelve el resultado para actualizar el estado
         } else {
-            setMessage('Service paid.');
+            //setMessage('Service paid.');
             return null;
         }
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to paid.');
+        setMessage(error.message||'No se pudo pagar.');
         return null;
     }
 }
@@ -132,7 +141,9 @@ export async function closeService(event, formData, setMessage) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse=await response.json();
+            setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+            return;
         }
 
         let result;
@@ -142,19 +153,20 @@ export async function closeService(event, formData, setMessage) {
             result = null;
         }
 
+        setMessage('Servicio cerrado.');
         if (result) {
-            console.log('Success:', result);
-            setMessage('Service close.');
+            //console.log('Success:', result);
+            //setMessage('Service close.');
             //setMessage(`Paid service: ${JSON.stringify(result)}`);
             return result; // Devuelve el resultado para actualizar el estado
         } else {
-            setMessage('Service close.');
+            //setMessage('Service close.');
             return null;
         }
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to close.');
+        setMessage(error.message||'No se pudo cerrar el servicio.');
         return null;
     }
 }
@@ -171,22 +183,24 @@ export async function expandService(event, formData, setMessage) {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse=await response.json();
+            setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+            return;
         }
 
         const result = await response.json();
         console.log('Success:', result);
-        setMessage('Service successfully updated!');
+        setMessage('Servicio ampliado');
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to update.');
+        setMessage(error.message||'Failed to update.');
     }
 }
 export async function changeRoomOfService(event, formData, setMessage, clearForm) {
     event.preventDefault();
 
-    console.log(formData);
+    //console.log(formData);
 
     try {
         const response = await fetch(`${API_SERVER}nuevaHabitacion`, {
@@ -198,23 +212,24 @@ export async function changeRoomOfService(event, formData, setMessage, clearForm
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse=await response.json();
+            setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+            return;
         }
 
-        const result = await response.json();
-        console.log('Success:', result);
-        setMessage('Successfully created!');
+        /*const result = await response.json();
+        console.log('Success:', result);*/
+        setMessage('Cambio exitoso');
         clearForm();
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to create.');
+        setMessage(error.message || 'No es posible realizar la operacion.');
     }
 }
 export async function changeRateOfService(event, formData, setMessage, clearForm) {
     event.preventDefault();
 
-    console.log(formData);
 
     try {
         const response = await fetch(`${API_SERVER}cambiarTarifa`, {
@@ -226,17 +241,19 @@ export async function changeRateOfService(event, formData, setMessage, clearForm
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorResponse=await response.json();
+            setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+            return;
         }
 
-        const result = await response.json();
-        console.log('Success:', result);
-        setMessage('Successfully created!');
+        /*const result = await response.json();
+        console.log('Success:', result);*/
+        setMessage('Cambio exitoso');
         clearForm();
 
     } catch (error) {
         console.error('Error:', error);
-        setMessage('Failed to create.');
+        setMessage('Error.');
     }
 }
 /*export async function payService(event, formData, setMessage) {

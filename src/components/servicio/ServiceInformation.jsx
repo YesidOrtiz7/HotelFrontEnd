@@ -1,11 +1,90 @@
 import { useState } from "react";
-import { payService, closeService } from "./useFetch";
+//import {  closeService } from "./useFetch";
+//import {postQueryReturnResult} from "../useFetch";
 
 export default function ServiceInformation({ service, setMessage, updateService }) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const API_SERVER="http://localhost:8080/servicio/";
     const toggleExpand = () => {
         setIsExpanded(!isExpanded);
     };
+
+    async function payService(event, formData, setMessage) {
+        event.preventDefault();
+    
+        try {
+            const response = await fetch(`${API_SERVER}pagarServicio`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+    
+            if (!response.ok) {
+                const errorResponse = await response.json();
+                setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+                return;
+            }
+    
+            let result;
+            try {
+                result = await response.json();
+            } catch (e) {
+                result = null;
+            }
+            setMessage('Servicio pagado.');
+    
+            if (result) {
+                return result;
+            } else {
+                return null;
+            }
+    
+        } catch (error) {
+            console.error('Error:', error);
+            setMessage(error.message||'No se pudo pagar.');
+            return null;
+        }
+    }
+    async function closeService(event, formData, setMessage) {
+        event.preventDefault();
+    
+        try {
+            const response = await fetch(`${API_SERVER}cerrarServicio`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+    
+            if (!response.ok) {
+                const errorResponse=await response.json();
+                setMessage(errorResponse.errorMessage||`HTTP error! status: ${response.status}`);
+                return;
+            }
+    
+            let result;
+            try {
+                result = await response.json();
+            } catch (e) {
+                result = null;
+            }
+    
+            setMessage('Servicio cerrado.');
+            if (result) {
+                return result;
+            } else {
+                return null;
+            }
+    
+        } catch (error) {
+            console.error('Error:', error);
+            setMessage(error.message||'No se pudo cerrar el servicio.');
+            return null;
+        }
+    }
 
     const handleSubmit = async (functionToExecute, e, formData) => {
         e.preventDefault();
